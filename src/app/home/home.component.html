@@ -7,5 +7,16 @@
               <a href="#" class="btn btn-primary">Like</a>
             </div>
           </div>
+
+          <div class="dropdown-collection">
+            <button class="dropdown-button" (click)="toggleDropdown()" (clickOutside)="dropdownOpen = false" >
+                <span id="dropdown-label">{{title}}: </span><span class="dropdown-value">{{currentValue.name}}</span>
+            </button>
+            <ul class="dropdown-list" role="listbox" [ngClass]="{'dropdown-open' : dropdownOpen}" >
+                <li >First</li>
+                <li >Second</li>
+            </ul>
+        </div>
+        
     </div>
 </div>
