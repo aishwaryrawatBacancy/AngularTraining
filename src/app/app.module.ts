@@ -6,6 +6,7 @@ import { HeaderComponent } from './header/header.component';
 import { HomeComponent } from './home/home.component';
 import { HighlightCardDirective } from './shared/directives/highlight-card.directive';
 import { UnlessDirective } from './shared/directives/structural-directive/unless.directive';
+import { AddClassCardDirective } from './app/shared/directvies/add-class-card.directive';
 
 @NgModule({
   declarations: [
@@ -13,7 +14,8 @@ import { UnlessDirective } from './shared/directives/structural-directive/unless
     HeaderComponent,
     HomeComponent,
     HighlightCardDirective,
-    UnlessDirective
+    UnlessDirective,
+    AddClassCardDirective
   ],
   imports: [
     BrowserModule
