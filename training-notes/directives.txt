@@ -1,0 +1,32 @@
+  /* Question
+    1. Dropdown Directive - Add Class "show" in the header component dropdown.
+    2. prepare ngSwitch
+  */
+**********************************************************
+Types of directives:
+    1. Attribute Directives, ngClass, ngStyle
+    2. Structural Directives - *ngIf, *ngFor, *ngSwitchCase - Removes the element completely from the DOM. 
+    3. Custom Directives -  attribute as well as structural
+
+************************************************************
+Internal conversion of *ngIf that is interpreted by angular
+
+    <app-home *ngIf="showHome"></app-home> 
+    
+    Internally Angular converts the ngIf into below code.    
+    <ng-template [ngIf]="showHome">
+        <app-home></app-home>
+    </ng-template> 
+************************************************************
+HostBinding refers to binding of the html element properties of the host with the directives. For example, the background color property can be linked directly
+through HostBinding
+
+HostListner refers to the binding/linking of the html elements events. For example, you can attach your own method to the mouseover or mouseleave events.
+************************************************************
+
+Custom Structural directives requires two most important things. The "What" and the "Where".
+The "What" refers to the template that you want to render. The template is identified by TemplateRef.
+The "Where" refers to the position where you want to view/render the template. It is identified by ViewContainerRef.
+***********************************************************
+
+
