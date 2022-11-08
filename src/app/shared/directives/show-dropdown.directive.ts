@@ -1,15 +1,16 @@
-import { Directive, ElementRef, OnInit } from '@angular/core';
+import { Directive, ElementRef, HostListener } from '@angular/core';
 
 @Directive({
   selector: '[appShowDropdown]'
 })
-export class ShowDropdownDirective implements OnInit {
+export class ShowDropdownDirective {
 
   constructor(private elRef: ElementRef) { }
 
-  ngOnInit(): void{
-    this.elRef.nativeElement.classList.add('show');
-    console.log(this.elRef);
+  @HostListener('click') toggleOpen() {
+    if(this.elRef.nativeElement.children[1].classList.contains('show')){
+      this.elRef.nativeElement.children[1].classList.remove('show');
+    }
   }
 
 }
