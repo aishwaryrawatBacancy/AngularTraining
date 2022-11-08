@@ -51,5 +51,12 @@ Home component - unique 1 instance -
 All the individual instances of the service are destroyed when the respective component/module is destroyed.
 
 
+***************Question******************
+1. Loop through Post component inside Home Component.
+2. Like button - Configure the like button to show the number of likes for each card/post.
+3. create a "Go to details" button on the post component. On click, it should navigate to the 
+    explore component and show the details.
+
+
 
 
