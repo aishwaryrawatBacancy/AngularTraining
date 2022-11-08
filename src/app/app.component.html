@@ -1,20 +1,5 @@
 <app-header [menu]="menuText" (menuChangeEmitter)="menuChange($event)">
 </app-header>
-<!-- all hooks for Home are different and unique -->
-<!-- <app-home *ngIf="showHome"></app-home>  -->
-<!-- 
-Internally Angular converts the ngIf into below code.    
-<ng-template [ngIf]="showHome">
-    <app-home></app-home>
-</ng-template> 
-
--->
 
 <app-home *appUnless="!showHome"></app-home> 
 
-
-<!-- 
-//Attribute Directives, ngClass, ngStyle
-//Structural Directives - *ngIf, *ngFor, *ngSwitchCase - Removes the element completely from the DOM. 
-//Custom Directives -  attribute as well as structural
--->
