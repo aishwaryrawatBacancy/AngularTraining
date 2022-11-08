@@ -1,4 +1,7 @@
 <p>categories works!</p>
 
-<a [routerLink]="['/aboutus']" [queryParams]="{q: '1234', name: 'abc' , search:'query'}" [fragment]="'loading'">Got to
+<a [routerLink]="['/aboutus']" [queryParams]="{q: '1234', name: 'abc' , search:'query'}" [fragment]="'loading'">Go to
     about us</a>
+
+<br>
+<a [routerLink]="['/user',1,'abc']">Go to abc user</a>
