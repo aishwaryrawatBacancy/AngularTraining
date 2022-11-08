@@ -1,15 +1,17 @@
 import { Component,Input,Output,EventEmitter, OnInit, OnChanges, OnDestroy,AfterContentInit,AfterViewInit, AfterViewChecked, AfterContentChecked } from '@angular/core';
+import { ShareDataService } from '../shared/services/share-data.service';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.scss']
+  styleUrls: ['./header.component.scss'],
+  providers: [ShareDataService]
 })
 export class HeaderComponent implements OnInit {
   @Input() menu: string = '';
   @Output() menuChangeEmitter = new EventEmitter<string>();
 
-  constructor() { }
+  constructor(private shareDataService: ShareDataService) { }
 
   // ngOnChanges(){
   //   //Whenever there is any change in the Input Bound Properties of the Component.
@@ -22,10 +24,14 @@ export class HeaderComponent implements OnInit {
   }
 
   menuChange(menu: string){
-    this.menuChangeEmitter.emit(menu);
+     this.menuChangeEmitter.emit(menu);
+    this.shareDataService.selectedMenu = menu;
   }
 
-
+  updateCount(){
+    this.shareDataService.updateCount()
+    console.log("Header Component", this.shareDataService.count);
+  }
   // ngDoCheck(){
   //   //only for debugging: 
   //   console.log("Do Check hook")
