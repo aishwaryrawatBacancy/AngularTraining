@@ -1,2 +1,5 @@
-<app-header></app-header>
-<app-home></app-home>
+<app-header [menu]="menuText" (menuChangeEmitter)="menuChange($event)">
+</app-header>
+
+<app-home *appUnless="!showHome"></app-home> 
+

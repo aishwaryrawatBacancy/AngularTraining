@@ -7,4 +7,23 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'angular-training-app';
+
+  menuText: string = 'Home';
+  removeHeader: boolean = true;
+  showHome = false;
+  changeText(){
+    this.menuText = "About";
+    this.removeHeader = false;
+  }
+
+  menuChange(menu: string){
+    if(menu === 'home'){
+      this.showHome = true;
+    }
+    else{
+      this.showHome = false;
+    }
+  }
+
+  //unless directive - structural directive - 
 }
