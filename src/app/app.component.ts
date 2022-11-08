@@ -8,10 +8,6 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'angular-training-app';
 
-  /*
-    1. Dropdown Directive - Add Class "show" in the header component dropdown.
-    2. prepare ngSwitch
-  */
   menuText: string = 'Home';
   removeHeader: boolean = true;
   showHome = false;
