@@ -8,16 +8,11 @@ import { HighlightCardDirective } from './shared/directives/highlight-card.direc
 import { UnlessDirective } from './shared/directives/structural-directive/unless.directive';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { CategoriesComponent } from './categories/categories.component';
-import { RouterModule, Routes } from '@angular/router';
 import { UserComponent } from './user/user.component';
-
-const appRoutes: Routes = [
-  { path: '', component: HomeComponent },
-  { path: 'aboutus', component: AboutUsComponent },
-  { path: 'categories', component: CategoriesComponent },
-  { path: 'user/:id/:name', component: UserComponent },
-  // { path: 'user/2/aaa', component: UserComponent }
-]
+import { UsersComponent } from './users/users.component';
+import { AppRoutingModule } from './app-routing.module';
+import { NotFoundComponent } from './not-found/not-found.component';
+import { EditUserComponent } from './edit-user/edit-user.component';
 
 @NgModule({
   declarations: [
@@ -28,11 +23,14 @@ const appRoutes: Routes = [
     UnlessDirective,
     AboutUsComponent,
     CategoriesComponent,
-    UserComponent
+    UserComponent,
+    UsersComponent,
+    NotFoundComponent,
+    EditUserComponent
   ],
   imports: [
     BrowserModule,
-    RouterModule.forRoot(appRoutes)
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

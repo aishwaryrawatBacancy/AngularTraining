@@ -1,0 +1,12 @@
+<p>users works!</p>
+
+<div *ngFor="let user of usersArray">
+    <a [routerLink]="['/users', user.id, user.name]" routerLinkActive="router-link-active" [queryParams]="{name: user.name}" > 
+        Go to {{user.name}} User 
+    </a>
+</div>
+
+<!-- Child Routing -->
+<div>
+    <router-outlet> </router-outlet>
+</div>
