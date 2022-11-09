@@ -1,5 +1,6 @@
 <app-header [menu]="menuText" (menuChangeEmitter)="menuChange($event)">
 </app-header>
-
-<app-home *appUnless="!showHome"></app-home> 
+{{showHome}}
+<app-home *appUnless="!showHome"></app-home>
+<app-explore *appUnless="showHome"></app-explore>
 

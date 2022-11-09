@@ -1,0 +1,62 @@
+***********************************************************************
+1. What are services? Why do we need services?
+2. What is injection of services?
+3. Hierarchial Injection.
+4. How many instances of service we can have?
+5. Using the services for cross component communication.
+
+*********************************************************************
+@Input() and @Output to communicate
+Component Input() -> Component Input() Output() -> Component - Output()
+
+Services are just classes. Members, Methods. We can create instances/objects of this service
+and utilize the members and methods.
+
+Service - 
+1. cross component communication
+2. Data storage - eg. ViewCount, this update will be visible across the application.
+3. Backend API Communication.
+4. Inter service communication. API in one service, consuming in other service.
+
+*********************************************************************
+Injection - Allowing the Angular provide the instance of a service.
+Injection - Module - Add the ShareDataSErvice in the providers array
+    1. This allows to have 1 Common instance of the service.
+**********************************************************************
+
+Hierarchial Injection.
+Injection - Providing an instance of a service wherever we are injecting.
+
+1. App Root level - app Module
+    - All the feature modules, and all the components will share the same instance.
+2. Feature level - Feature Modules - Multiple modules in a single application.
+    - Instance of the service is available to that specific feature module and all its components.
+    - Posts Module - inside the providers array of a feature module. updateCount()
+    - Search Module - inside the providers array of a feature module. updateCount()
+3. Component Level
+    - Instance is only available inside that specific component.
+
+**********************************************************************
+Communication with BE APIs.
+
+HTTPClientModule - 
+
+*************************************************************************
+Providers array is Angulars way of knowing which component or which module requires a separate instance.
+
+***********************************************************************
+Header component - 1 instance
+Home component - unique 1 instance - 
+
+All the individual instances of the service are destroyed when the respective component/module is destroyed.
+
+
+***************Question******************
+1. Loop through Post component inside Home Component.
+2. Like button - Configure the like button to show the number of likes for each card/post.
+3. create a "Go to details" button on the post component. On click, it should navigate to the 
+    explore component and show the details.
+
+
+
+

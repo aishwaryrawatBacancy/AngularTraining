@@ -7,7 +7,11 @@ import { HomeComponent } from './home/home.component';
 import { HighlightCardDirective } from './shared/directives/highlight-card.directive';
 import { UnlessDirective } from './shared/directives/structural-directive/unless.directive';
 import { AddClassCardDirective } from './shared/directives/add-class-card.directive';
+import { DropdownDirective } from './shared/directives/dropdown-directive/dropdown.directive';
 
+import { HttpClientModule } from '@angular/common/http';
+import { ExploreComponent } from './explore/explore.component';
+import { PostsComponent } from './home/posts/posts.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -15,10 +19,14 @@ import { AddClassCardDirective } from './shared/directives/add-class-card.direct
     HomeComponent,
     HighlightCardDirective,
     UnlessDirective,
-    AddClassCardDirective
+    AddClassCardDirective,
+    DropdownDirective,
+    ExploreComponent,
+    PostsComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
