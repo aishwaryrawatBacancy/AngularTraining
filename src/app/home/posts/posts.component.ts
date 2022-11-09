@@ -1,6 +1,7 @@
 import { PostDataServices } from './postsData.service';
 import { Component, OnInit, Input } from '@angular/core';
 import { ShareDataService } from 'src/app/shared/services/share-data.service';
+import { CommonServices } from '../../common.serivce';
 
 @Component({
   selector: 'app-posts',
@@ -15,6 +16,7 @@ export class PostsComponent implements OnInit {
   constructor(
     private shareDataService: ShareDataService,
     private postDataService: PostDataServices,
+    private commonServices:CommonServices
   ) {}
     
   ngOnInit(): void {
@@ -26,5 +28,10 @@ export class PostsComponent implements OnInit {
     this.postDataService.updateCount();
     console.log('Post Component ',this.card.title,'-' ,this.postDataService.count);
     this.likesCount = this.postDataService.count
+  }
+
+  goToDetails(title:string){
+    this.commonServices.addContent(title)
+    this.commonServices.showHome = false
   }
 }

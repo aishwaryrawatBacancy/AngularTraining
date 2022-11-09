@@ -1,6 +1,10 @@
-<ng-container *ngIf="userPosts.length > 0">
-    <div *ngFor="let post of userPosts">
-        <p>{{post.title}}</p>
+<ng-container *ngIf="exploreContent.length > 0">
+  <div *ngFor="let post of exploreContent">
+    <div class="card-body">
+      <h5 class="card-title">{{ post.title }}</h5>
+      <p class="card-text">
+        {{ post.text }}
+      </p>
     </div>
+  </div>
 </ng-container>
-

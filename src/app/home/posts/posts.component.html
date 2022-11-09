@@ -3,7 +3,7 @@
     class="card"
     appHighlightCard
     [defaultColor]="'transparent'"
-    [highlightColor]="'grey'"
+    [highlightColor]="'lightGrey'"
   >
     <div class="card-body">
       <h5 class="card-title">{{ card.title }}</h5>
@@ -11,7 +11,8 @@
         {{ card.text }}
       </p>
       <a href="#" class="btn btn-primary" (click)="updateLikesCount()">Like</a>
-      <a href="#" class="btn btn-primary">{{likesCount}}</a>
+      <a href="#" class="btn btn-primary" [ngStyle]="{'marginLeft': '10px','background-color': 'red'}">{{likesCount}}</a>
+      <a href="#" class="btn btn-primary" [ngStyle]="{'marginLeft': '10px'}" (click)="goToDetails(card.title)">Go to details</a>
     </div>
   </div>
 </div>

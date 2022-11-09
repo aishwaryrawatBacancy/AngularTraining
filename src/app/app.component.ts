@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { CommonServices } from './common.serivce';
+import { Component, Input } from '@angular/core';
 import { ShareDataService } from './shared/services/share-data.service';
 
 @Component({
@@ -11,33 +12,32 @@ export class AppComponent {
 
   menuText: string = 'Home';
   removeHeader: boolean = true;
-  showHome = false;
 
-  constructor(){}
+  @Input() showHome = this.commonServices.showHome;
 
-  changeText(){
-    this.menuText = "About";
+  constructor(private commonServices: CommonServices) {}
+
+  changeText() {
+    this.menuText = 'About';
     this.removeHeader = false;
   }
 
-  menuChange(menu: string){
-    if(menu === 'home'){
+  menuChange(menu: string) {
+    if (menu === 'home') {
       this.showHome = true;
       // this.shareDataService.getPosts().subscribe(data => {
       //   if(data){
       //     this.shareDataService.userPosts = data;
       //   }
       // });
-    }
-    else{
+    } else {
       this.showHome = false;
     }
   }
-
 
   // ngAfterViewChecked(){
   //   console.log(this.shareDataService.selectedMenu)
   //   this.menuChange(this.shareDataService.selectedMenu)
   // }
-  //unless directive - structural directive - 
+  //unless directive - structural directive -
 }

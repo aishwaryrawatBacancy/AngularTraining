@@ -1,3 +1,4 @@
+import { CommonServices } from './common.serivce';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -28,7 +29,7 @@ import { PostsComponent } from './home/posts/posts.component';
     BrowserModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [CommonServices],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
