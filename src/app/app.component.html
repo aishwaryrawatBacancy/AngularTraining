@@ -1,5 +1,7 @@
 <app-header [menu]="menuText" (menuChangeEmitter)="menuChange($event)">
 </app-header>
+<app-home *appUnless="!showHome"></app-home> 
+<app-explore *appUnless="showHome"></app-explore>
 <!-- all hooks for Home are different and unique -->
 <!-- <app-home *ngIf="showHome"></app-home>  -->
 <!-- 
@@ -8,12 +10,11 @@ Internally Angular converts the ngIf into below code.
     <app-home></app-home>
 </ng-template> 
 
--->
 
 <app-home *appUnless="showHome"></app-home> 
 
 
-<!-- 
+
 //Attribute Directives, ngClass, ngStyle
 //Structural Directives - *ngIf, *ngFor, *ngSwitchCase - Removes the element completely from the DOM. 
 //Custom Directives -  attribute as well as structural

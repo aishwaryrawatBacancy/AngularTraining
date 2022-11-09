@@ -8,6 +8,9 @@ import { HighlightCardDirective } from './shared/directives/highlight-card.direc
 import { UnlessDirective } from './shared/directives/structural-directive/unless.directive';
 import { ShowDropdownDirective } from './shared/directives/show-dropdown.directive';
 
+import { HttpClientModule } from '@angular/common/http';
+import { ExploreComponent } from './explore/explore.component';
+import { PostsComponent } from './home/posts/posts.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -15,10 +18,13 @@ import { ShowDropdownDirective } from './shared/directives/show-dropdown.directi
     HomeComponent,
     HighlightCardDirective,
     UnlessDirective,
-    ShowDropdownDirective
+    ShowDropdownDirective,
+    ExploreComponent,
+    PostsComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
