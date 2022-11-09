@@ -7,6 +7,7 @@ export class ShareDataService{
     count = 0;
     selectedMenu: string = '';
     userPosts: any[] = [];
+    detailPost: any = {};
 
     constructor(private http: HttpClient){
 

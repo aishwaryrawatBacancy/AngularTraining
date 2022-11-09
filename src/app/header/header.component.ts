@@ -5,7 +5,7 @@ import { ShareDataService } from '../shared/services/share-data.service';
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss'],
-  providers: [ShareDataService]
+  // providers: [ShareDataService]
 })
 export class HeaderComponent implements OnInit {
   @Input() menu: string = '';
@@ -24,7 +24,7 @@ export class HeaderComponent implements OnInit {
   }
 
   menuChange(menu: string){
-     this.menuChangeEmitter.emit(menu);
+    //  this.menuChangeEmitter.emit(menu);
     this.shareDataService.selectedMenu = menu;
   }
 

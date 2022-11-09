@@ -1,5 +1,3 @@
 <div class="container mt-2" (click)="updateCount()">
-    <app-posts></app-posts>
+    <app-posts *ngFor="let post of posts" [title]="post.title" [description]="post.description" (goToDetailsEmiter)="goToDetails($event)"></app-posts>
 </div>
-
-

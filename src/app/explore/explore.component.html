@@ -1,6 +1,8 @@
-<ng-container *ngIf="userPosts.length > 0">
-    <div *ngFor="let post of userPosts">
-        <p>{{post.title}}</p>
+<ng-container *ngIf="userPost.title && userPost.description && userPost.likeCount">
+    <div>
+        <p>Title: {{userPost.title}}</p>
+        <p>Description: {{userPost.description}}</p>
+        <p>Likes: {{userPost.likeCount}}</p>
     </div>
 </ng-container>
 
