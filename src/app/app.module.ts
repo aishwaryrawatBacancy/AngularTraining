@@ -3,16 +3,16 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
-import { HomeComponent } from './home/home.component';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent,
-    HomeComponent
+    HeaderComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    SharedModule
   ],
   providers: [],
   bootstrap: [AppComponent]
