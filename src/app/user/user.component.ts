@@ -13,6 +13,11 @@ export class UserComponent implements OnInit {
   constructor(private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {
+    // Query parameters
+    // this.id = this.route.snapshot.params['id'];
+    // this.name = this.route.snapshot.params['name'];
+
+    // from routing file.
     this.route.params.subscribe((params) => {
       console.log('params:::', params);
       this.id = params['id'];

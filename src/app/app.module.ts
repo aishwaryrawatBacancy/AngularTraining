@@ -13,6 +13,7 @@ import { UsersComponent } from './users/users.component';
 import { AppRoutingModule } from './app-routing.module';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { EditUserComponent } from './edit-user/edit-user.component';
+import { EditUserRoutingModule } from './edit-user/edit-user-routing.module';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { EditUserComponent } from './edit-user/edit-user.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    EditUserRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

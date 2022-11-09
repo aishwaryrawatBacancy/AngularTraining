@@ -10,8 +10,8 @@ import { EditUserComponent } from './edit-user/edit-user.component';
 
 const routes: Routes = [
   { 
-    path: '', 
-    component: HomeComponent 
+    path: '',
+    component: HomeComponent
   },
   { 
     path: 'aboutus', 
@@ -21,6 +21,10 @@ const routes: Routes = [
     path: 'categories', 
     component: CategoriesComponent 
   },
+  // { 
+  //   path: 'user/:id/:name', 
+  //   component: UserComponent,
+  // },
   {
     path: 'users', // router-outlet 
     component: UsersComponent,
