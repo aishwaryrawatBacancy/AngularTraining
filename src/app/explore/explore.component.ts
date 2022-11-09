@@ -5,15 +5,14 @@ import { ShareDataService } from '../shared/services/share-data.service';
   selector: 'app-explore',
   templateUrl: './explore.component.html',
   styleUrls: ['./explore.component.scss'],
-  providers: [ShareDataService]
 })
 export class ExploreComponent implements OnInit {
   userPosts: any[] = [];
-  constructor(private shareDataService: ShareDataService) { }
+  constructor(public shareDataService: ShareDataService) { }
 
   ngOnInit(): void {
-    console.log("User Posts", this.shareDataService.userPosts);
-    this.userPosts = this.shareDataService.userPosts;
+    this.userPosts.push(this.shareDataService.detailPost);
+    console.log("User Posts", this.userPosts);
   }
 
 }

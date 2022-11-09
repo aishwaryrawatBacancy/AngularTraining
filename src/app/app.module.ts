@@ -7,7 +7,6 @@ import { HomeComponent } from './home/home.component';
 import { DropdownDirective } from './shared/directives/dropdown.directive';
 import { HighlightCardDirective } from './shared/directives/highlight-card.directive';
 import { UnlessDirective } from './shared/directives/structural-directive/unless.directive';
-import { DropdownDirective } from './shared/directives/dropdown-directive/dropdown.directive';
 
 import { HttpClientModule } from '@angular/common/http';
 import { ExploreComponent } from './explore/explore.component';

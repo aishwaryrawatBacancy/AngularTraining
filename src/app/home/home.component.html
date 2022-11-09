@@ -1,5 +1,9 @@
 <div class="container mt-2" (click)="updateCount()">
-    <app-posts></app-posts>
+    <app-posts
+    *ngFor="let post of posts" [postSel]="post" 
+    (showMoreEventEmitter)="showDetails(post)"
+    ></app-posts>
 </div>
+
 
 

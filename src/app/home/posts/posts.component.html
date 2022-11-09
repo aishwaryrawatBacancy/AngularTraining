@@ -1,17 +1,11 @@
 <div class="flex">
     <div class="card" appHighlightCard [defaultColor]="'grey'" [highlightColor]="'yellow'">
         <div class="card-body">
-          <h5 class="card-title">Card First</h5>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-          <a href="#" class="btn btn-primary" (click)="updateCount()">Like</a>
+          <h5 class="card-title">{{ postSel.title }}</h5>
+          <p class="card-text">{{ postSel.description }}</p>
+          <a href="#" class="btn btn-primary" (click)="updateCount()">Like {{shareDataService.count}}</a>
+          <a href="#" class="btn btn-primary" (click)="showMore()">Show More</a>
+
         </div>
     </div>
-
-    <div class="card" appHighlightCard [defaultColor]="'blue'" [highlightColor]="'green'">
-      <div class="card-body">
-        <h5 class="card-title">Card Second</h5>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-        <a href="#" class="btn btn-primary">Like</a>
-      </div>
-  </div>
 </div>
