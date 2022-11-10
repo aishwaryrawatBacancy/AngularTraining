@@ -1,6 +1,9 @@
-<ng-container *ngIf="userPosts.length > 0">
-    <div *ngFor="let post of userPosts">
+<ng-container *ngIf="cardData.length > 0">
+    <div *ngFor="let post of cardData">
         <p>{{post.title}}</p>
+        <div>Welcome to {{post.title}} and detail is {{post.description}}</div>
     </div>
+
+    
 </ng-container>
 
