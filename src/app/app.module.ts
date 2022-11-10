@@ -14,6 +14,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { EditUserComponent } from './edit-user/edit-user.component';
 import { EditUserRoutingModule } from './edit-user/edit-user-routing.module';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { EditUserRoutingModule } from './edit-user/edit-user-routing.module';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    EditUserRoutingModule
+    EditUserRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

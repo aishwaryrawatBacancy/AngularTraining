@@ -7,19 +7,22 @@ import { UserComponent } from './user/user.component';
 import { UsersComponent } from './users/users.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { EditUserComponent } from './edit-user/edit-user.component';
+import { AuthCanActivateGuard } from './guards/auth-can-activate.guard';
+import { AuthCanDeactivateGuard } from './guards/auth-can-deactivate.guard';
 
 const routes: Routes = [
-  { 
+  {
     path: '',
     component: HomeComponent
   },
-  { 
-    path: 'aboutus', 
-    component: AboutUsComponent 
+  {
+    path: 'aboutus',
+    component: AboutUsComponent
   },
-  { 
-    path: 'categories', 
-    component: CategoriesComponent 
+  {
+    path: 'categories',
+    component: CategoriesComponent,
+    canDeactivate: [AuthCanDeactivateGuard]
   },
   // { 
   //   path: 'user/:id/:name', 
@@ -28,14 +31,17 @@ const routes: Routes = [
   {
     path: 'users', // router-outlet 
     component: UsersComponent,
+    canActivate: [AuthCanActivateGuard],
+    canActivateChild: [AuthCanActivateGuard],
     children: [
-      { 
-        path: ':id/:name', 
+      {
+        path: ':id/:name',
         component: UserComponent,
       },
       {
         path: ':id/:name/edit',
-        component: EditUserComponent
+        component: EditUserComponent,
+        canDeactivate: [AuthCanDeactivateGuard]
       }
     ]
   },

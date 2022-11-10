@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AuthService } from './shared/services/auth.service';
 
 @Component({
   selector: 'app-root',
@@ -15,18 +16,29 @@ export class AppComponent {
   menuText: string = 'Home';
   removeHeader: boolean = true;
   showHome = false;
-  changeText(){
+  constructor(private authService: AuthService) {
+
+  }
+  changeText() {
     this.menuText = "About";
     this.removeHeader = false;
   }
 
-  menuChange(menu: string){
-    if(menu === 'home'){
+  menuChange(menu: string) {
+    if (menu === 'home') {
       this.showHome = true;
     }
-    else{
+    else {
       this.showHome = false;
     }
+  }
+
+  onLogin(): void {
+    this.authService.login();
+  }
+
+  onLogout(): void {
+    this.authService.logout();
   }
 
   //unless directive - structural directive - 

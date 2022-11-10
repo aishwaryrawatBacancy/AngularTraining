@@ -19,6 +19,12 @@ Internally Angular converts the ngIf into below code.
 //Custom Directives -  attribute as well as structural
 -->
 <div class="container p-3">
+
+    <div class="mb-4">
+        <button class="btn btn-primary btn-sm mr-4" (click)="onLogin()">Login</button>
+        <button class="btn btn-warning btn-sm ml-2" (click)="onLogout()">Logout</button>
+    </div>
+
     <div class="row">
         <div class="col-md-3">
             <app-header></app-header>
