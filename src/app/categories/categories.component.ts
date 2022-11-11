@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { IDeactivate } from '../guards/auth-can-deactivate.guard';
+import { CategoryService } from '../services/category.service';
 
 @Component({
   selector: 'app-categories',
@@ -8,11 +9,19 @@ import { IDeactivate } from '../guards/auth-can-deactivate.guard';
   styleUrls: ['./categories.component.scss']
 })
 export class CategoriesComponent implements OnInit, IDeactivate {
-
-  constructor(private route: ActivatedRoute) { }
+  categories: { id: number, name: string }[] = [];
+  constructor(private route: ActivatedRoute, private categoryService: CategoryService) { }
 
   ngOnInit(): void {
-    console.log('Fragment:::', this.route.snapshot.fragment);
+    // this.route.data.subscribe((data) => {
+    //   console.log(data)
+    // })
+    // this.categories = this.categoryService.categories;
+
+    this.route.data.subscribe((data) => {
+      console.log(data)
+      this.categories = data['categories']
+    })
   }
 
   canExit(): boolean {

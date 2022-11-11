@@ -9,6 +9,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { EditUserComponent } from './edit-user/edit-user.component';
 import { AuthCanActivateGuard } from './guards/auth-can-activate.guard';
 import { AuthCanDeactivateGuard } from './guards/auth-can-deactivate.guard';
+import { CategoryResolverService } from './guards/category-resolver.service';
 
 const routes: Routes = [
   {
@@ -22,6 +23,9 @@ const routes: Routes = [
   {
     path: 'categories',
     component: CategoriesComponent,
+
+    // data: { user: 'ABC', record: 'dummy' },
+    resolve: { categories: CategoryResolverService },
     canDeactivate: [AuthCanDeactivateGuard]
   },
   // { 
@@ -56,7 +60,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, { useHash: true })],
   exports: [RouterModule],
 })
 export class AppRoutingModule { }
