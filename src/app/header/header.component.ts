@@ -1,4 +1,6 @@
 import { Component,Input,Output,EventEmitter, OnInit, OnChanges, OnDestroy,AfterContentInit,AfterViewInit, AfterViewChecked, AfterContentChecked } from '@angular/core';
+import { Router } from '@angular/router';
+import { AuthService } from '../shared/services/auth.service';
 import { ShareDataService } from '../shared/services/share-data.service';
 
 @Component({
@@ -11,7 +13,7 @@ export class HeaderComponent implements OnInit {
   @Input() menu: string = '';
   @Output() menuChangeEmitter = new EventEmitter<string>();
 
-  constructor(private shareDataService: ShareDataService) { }
+  constructor(private shareDataService: ShareDataService, private authService: AuthService, private router: Router) { }
 
   // ngOnChanges(){
   //   //Whenever there is any change in the Input Bound Properties of the Component.
@@ -25,7 +27,16 @@ export class HeaderComponent implements OnInit {
 
   menuChange(menu: string){
     //  this.menuChangeEmitter.emit(menu);
-    this.shareDataService.selectedMenu = menu;
+    // this.shareDataService.selectedMenu = menu;
+  }
+
+  isUserLogin(){
+    return this.authService.isAuthenticated();
+  }
+
+  logoutUser(){
+    this.authService.logout();
+    this.router.navigate(['/home']);
   }
 
   updateCount(){

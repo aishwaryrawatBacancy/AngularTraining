@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { AuthService } from './shared/services/auth.service';
 import { ShareDataService } from './shared/services/share-data.service';
 
 @Component({
@@ -7,7 +8,7 @@ import { ShareDataService } from './shared/services/share-data.service';
   styleUrls: ['./app.component.scss'],
   providers: [ShareDataService]
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'angular-training-app';
 
   /*
@@ -18,31 +19,40 @@ export class AppComponent {
   removeHeader: boolean = true;
   showHome = false;
 
-  constructor(private shareDataService: ShareDataService){}
+  constructor(private shareDataService: ShareDataService, private authService: AuthService){}
 
+  ngOnInit(): void {
+    if(localStorage.getItem("isLoggedIn") === "true"){
+      this.authService.login();
+    }
+    else{
+      this.authService.logout();
+    }
+  }
+  
   changeText(){
     this.menuText = "About";
     this.removeHeader = false;
   }
 
-  menuChange(menu: string){
-    if(menu === 'home'){
-      this.showHome = true;
-      // this.shareDataService.getPosts().subscribe(data => {
-      //   if(data){
-      //     this.shareDataService.userPosts = data;
-      //   }
-      // });
-    }
-    else{
-      this.showHome = false;
-    }
-  }
+  // menuChange(menu: string){
+  //   if(menu === 'home'){
+  //     this.showHome = true;
+  //     // this.shareDataService.getPosts().subscribe(data => {
+  //     //   if(data){
+  //     //     this.shareDataService.userPosts = data;
+  //     //   }
+  //     // });
+  //   }
+  //   else{
+  //     this.showHome = false;
+  //   }
+  // }
 
 
-  ngAfterContentChecked(){
-    console.log(this.shareDataService.selectedMenu)
-    this.menuChange(this.shareDataService.selectedMenu)
-  }
+  // ngAfterContentChecked(){
+  //   console.log(this.shareDataService.selectedMenu)
+  //   this.menuChange(this.shareDataService.selectedMenu)
+  // }
   //unless directive - structural directive - 
 }

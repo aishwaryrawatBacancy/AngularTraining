@@ -1,0 +1,12 @@
+<form class="container top-margin-30">
+    <h3 class="top-margin-30">Login</h3>
+    <div class="form-group top-margin-30">
+      <label for="exampleInputEmail1">Email address</label>
+      <input type="email" name="email" [(ngModel)]="userEmail" class="form-control" aria-describedby="emailHelp" placeholder="Enter email">
+    </div>
+    <div class="form-group top-margin-30">
+      <label for="exampleInputPassword1">Password</label>
+      <input type="password" name="pass" [(ngModel)]="password" class="form-control" placeholder="Password">
+    </div>
+    <button type="button" (click)="onLogin()" class="btn btn-primary top-margin-30">Submit</button>
+</form>

@@ -1,7 +1,12 @@
-<app-header [menu]="menuText" (menuChangeEmitter)="menuChange($event)">
+<app-header [menu]="menuText">
 </app-header>
-<app-home *appUnless="!showHome"></app-home> 
-<app-explore *appUnless="showHome"></app-explore>
+
+<router-outlet></router-outlet>
+
+<!-- <app-home *appUnless="!showHome"></app-home> 
+<app-explore *appUnless="showHome"></app-explore> -->
+
+
 <!-- all hooks for Home are different and unique -->
 <!-- <app-home *ngIf="showHome"></app-home>  -->
 <!-- 

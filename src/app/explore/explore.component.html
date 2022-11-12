@@ -1,4 +1,4 @@
-<ng-container *ngIf="userPost.title && userPost.description && userPost.likeCount">
+<ng-container *ngIf="userPost.title || userPost.description || userPost.likeCount">
     <div>
         <p>Title: {{userPost.title}}</p>
         <p>Description: {{userPost.description}}</p>

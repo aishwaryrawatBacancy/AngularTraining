@@ -11,6 +11,12 @@ import { ShowDropdownDirective } from './shared/directives/show-dropdown.directi
 import { HttpClientModule } from '@angular/common/http';
 import { ExploreComponent } from './explore/explore.component';
 import { PostsComponent } from './home/posts/posts.component';
+import { AppRoutingModule } from './app-routing.module';
+import { UserPostsComponent } from './user-posts/user-posts.component';
+import { PreviewPostComponent } from './user-posts/preview-post/preview-post.component';
+import { UserLoginComponent } from './user-login/user-login.component';
+import { FormsModule } from '@angular/forms';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,11 +26,16 @@ import { PostsComponent } from './home/posts/posts.component';
     UnlessDirective,
     ShowDropdownDirective,
     ExploreComponent,
-    PostsComponent
+    PostsComponent,
+    UserPostsComponent,
+    PreviewPostComponent,
+    UserLoginComponent
   ],
   imports: [
     BrowserModule,
-    HttpClientModule
+    HttpClientModule,
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

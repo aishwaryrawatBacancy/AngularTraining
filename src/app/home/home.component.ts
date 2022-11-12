@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { ShareDataService } from '../shared/services/share-data.service';
 
 @Component({
@@ -9,7 +10,7 @@ import { ShareDataService } from '../shared/services/share-data.service';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private shareDataService: ShareDataService) { }
+  constructor(private shareDataService: ShareDataService, private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -35,7 +36,8 @@ export class HomeComponent implements OnInit {
   }
 
   goToDetails(postObj: any): void{
-    this.shareDataService.selectedMenu = 'explore';
+    // this.shareDataService.selectedMenu = 'explore';
+    this.router.navigate(['explore']);
     this.shareDataService.detailPost = postObj;
   }
 }

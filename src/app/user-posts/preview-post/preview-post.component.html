@@ -1,0 +1,25 @@
+<div class="container top-margin-30">
+    <h3>Preview Post</h3>
+    <div class="top-margin-30">
+        <div class="flex">
+            <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title">{{ title }}</h5>
+                  <p class="card-text">{{ body }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="top-margin-30">
+        <h4>Comments:</h4>
+        <div class="flex">
+            <div class="card" *ngFor="let comment of commentsPost">
+                <div class="card-body">
+                  <h5 class="card-title">Name: {{comment.name}}</h5>
+                  <h5 class="card-title">Email: {{comment.email}}</h5>
+                  <p class="card-text">Comment: {{comment.body}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
