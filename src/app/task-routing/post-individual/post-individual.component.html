@@ -1,0 +1,19 @@
+<div class="card">
+    <div class="card-body">
+        <h2>Id : {{individualPost.id}}</h2>
+        <h4>User Id :{{individualPost.userId}}</h4>
+      <h5 class="card-title">{{ individualPost.title }}</h5>
+      <p class="card-text">{{ individualPost.body }}</p>
+    </div>
+</div>
+
+<h4>Comments:</h4>
+        <div class="flex">
+            <div class="card" *ngFor="let comment of comments">
+                <div class="card-body">
+                  <h5 class="card-title">Name: {{comment.name}}</h5>
+                  <h5 class="card-title">Email: {{comment.email}}</h5>
+                  <p class="card-text">Comment: {{comment.body}}</p>
+                </div>
+            </div>
+        </div>

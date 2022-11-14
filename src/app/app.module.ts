@@ -11,6 +11,15 @@ import { UnlessDirective } from './shared/directives/structural-directive/unless
 import { HttpClientModule } from '@angular/common/http';
 import { ExploreComponent } from './explore/explore.component';
 import { PostsComponent } from './home/posts/posts.component';
+import { AppRoutingModule } from './app-routing.module';
+
+import { RouterModule } from '@angular/router';
+import { TaskRoutingComponent } from './task-routing/task-routing.component';
+import { PostIndividualComponent } from './task-routing/post-individual/post-individual.component';
+import { LoginComponent } from './login/login.component';
+import { AuthGuard } from './guards/auth.guard';
+import { ResolveGuard } from './guards/resolve.guard';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -21,13 +30,18 @@ import { PostsComponent } from './home/posts/posts.component';
     UnlessDirective,
     DropdownDirective,
     ExploreComponent,
-    PostsComponent
+    PostsComponent,
+    TaskRoutingComponent,
+    PostIndividualComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
-    HttpClientModule
+    HttpClientModule,
+    AppRoutingModule,
+    RouterModule
   ],
-  providers: [],
+  providers: [AuthGuard, ResolveGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
