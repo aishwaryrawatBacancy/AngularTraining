@@ -21,24 +21,10 @@ export class AppComponent {
     this.removeHeader = false;
   }
 
-  menuChange(menu: string){
-    if(menu === 'home'){
-      this.showHome = true;
-      // this.shareDataService.getPosts().subscribe(data => {
-      //   if(data){
-      //     this.shareDataService.userPosts = data;
-      //   }
-      // });
-    }
-    else{
-      this.showHome = false;
-    }
-  }
-
 
   ngAfterContentChecked(){
-    console.log(this.shareDataService.selectedMenu)
-    this.menuChange(this.shareDataService.selectedMenu)
+    // console.log(this.shareDataService.selectedMenu)
+    // this.menuChange(this.shareDataService.selectedMenu)
   }
   //unless directive - structural directive - 
 }

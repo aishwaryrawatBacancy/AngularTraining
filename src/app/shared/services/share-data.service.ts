@@ -1,12 +1,10 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { cardData } from 'src/app/home/post-card-data';
 
 @Injectable()
 export class ShareDataService {
   count = 0;
-  selectedMenu: string = '';
   userPosts: any[] = [];
   cardDetail: any[] = []
 

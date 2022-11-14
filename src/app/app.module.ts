@@ -1,30 +1,40 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { RouterModule } from '@angular/router';
+import { AppRoutingModule } from './app-routing.module';
+import { PostsComponent } from './home/posts/posts.component';
+import { HttpClientModule, HttpClient } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { HomeComponent } from './home/home.component';
+import { DropdownDirective } from './shared/attribute-directive/dropdown.directive';
 import { HighlightCardDirective } from './shared/directives/highlight-card.directive';
 import { UnlessDirective } from './shared/directives/structural-directive/unless.directive';
-import { DropdownDirective } from './shared/directives/dropdown-directive/dropdown.directive';
+import { PostsDataComponent } from './posts-data/posts-data.component';
+import { PostDataComponent } from './post-data/post-data.component';
+import { DefaultComponent } from './default/default.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 
-import { HttpClientModule } from '@angular/common/http';
-import { ExploreComponent } from './explore/explore.component';
-import { PostsComponent } from './home/posts/posts.component';
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     HomeComponent,
+    DropdownDirective,
     HighlightCardDirective,
     UnlessDirective,
-    DropdownDirective,
-    ExploreComponent,
-    PostsComponent
+    PostsComponent,
+    PostsDataComponent,
+    PostDataComponent,
+    DefaultComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,
-    HttpClientModule
+    HttpClientModule,
+    RouterModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,4 +1,3 @@
-import { compileNgModule } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { ShareDataService } from '../shared/services/share-data.service';
 import { cardData } from './post-card-data';
@@ -28,6 +27,6 @@ export class HomeComponent implements OnInit {
 
   cardDetailDisplay(carddata: any) {
     this.shareDataService.cardDetail = carddata;
-    this.shareDataService.selectedMenu = 'explore';
+    // this.shareDataService.selectedMenu = 'explore';
   }
 }

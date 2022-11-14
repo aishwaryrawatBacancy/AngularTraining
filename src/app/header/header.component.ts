@@ -21,7 +21,7 @@ import { ShareDataService } from '../shared/services/share-data.service';
 })
 export class HeaderComponent implements OnInit {
   @Input() menu: string = '';
-  @Output() menuChangeEmitter = new EventEmitter<string>();
+  // @Output() menuChangeEmitter = new EventEmitter<string>();
 
   constructor(private shareDataService: ShareDataService) {}
 
@@ -33,11 +33,6 @@ export class HeaderComponent implements OnInit {
   ngOnInit(): void {
     //Only executed 1 time when the component is loaded.
     console.log('On Init Hook', this.menu);
-  }
-
-  menuChange(menu: string) {
-    this.menuChangeEmitter.emit(menu);
-    this.shareDataService.selectedMenu = menu;
   }
 
   updateCount() {
