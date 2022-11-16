@@ -1,13 +1,14 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
-import { Observable } from "rxjs";
+import { Observable, Subject} from "rxjs";
 
 @Injectable()
 export class ShareDataService{
     count = 0;
     selectedMenu: string = '';
     userPosts: any[] = [];
-
+    trainingSubject = new Subject<boolean>();
+    
     constructor(private http: HttpClient){
 
     }

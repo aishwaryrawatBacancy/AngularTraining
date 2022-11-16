@@ -18,4 +18,7 @@ export class PostsComponent implements OnInit {
     console.log("Post Component", this.shareDataService.count);
   }
 
+  postLiked(){
+    this.shareDataService.trainingSubject.next(true);
+  }
 }

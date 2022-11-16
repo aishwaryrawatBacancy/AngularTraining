@@ -1,0 +1,59 @@
+*****************************************
+1. What are observables?
+2. Analyzing Angular observables
+3. Core of observables
+4. Building a custom observables
+5. Handling errors and completion.
+6. Understanding Operators.
+7. Subjects.
+******************************************
+
+// like promises - asynchronous - resolve and reject - resolved 
+// Handle some event, http request
+// Callback function - resolved - finished.
+
+1. Data Source - Continuously emits data.
+
+Observable Pattern
+1. Observer
+2. Observable
+
+Observable ---->--------->----------------->--------------->Operators (manipulated data)----->>>> Observer
+
+1. button -> emitting data. - component A
+    Observer -> component B
+2. Emit the data in a controlled manner.
+3. HTTP scenario -> emits as soon as the response comes -> 
+
+RxJS - Angular works really  well with RxJS.
+
+****************************************************
+Observables are going to be active unless we manually unsubscribe.
+
+Observer has 3 parts.
+1. Data - callback functions
+2. errors -
+3. Complete - 
+observable.subscribe(data, errors, complete)
+
+2. Custom Observable.
+
+3. How to finish an observable 
+    1. unsubscribe
+    2. Complete
+    3. error - observable is cancelled.
+
+4. Operators - pipe, map.
+    SwithMap
+    MergeMap
+    ForkJoin
+    Take
+    shareReplay
+5. Subjects - Active Observable, BehaviouSubjects - Have the initial value - null, constantly emit the previous value.
+    Part of RxJS
+    they are a type of observable which works efficiently with Angular.
+
+    Active and Passive observables.
+    Acive - we have the control to emit the values. 
+    the values are emitted from outside.
+    Passive -  we dont have control over the emittion of values. And the values are emitted from Inside the observable.
