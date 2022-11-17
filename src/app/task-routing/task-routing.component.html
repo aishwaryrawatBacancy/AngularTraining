@@ -1,6 +1,7 @@
 <div class="flex" *ngFor="let post of postData">
     <div class="card" 
       (click)="showPost(post)"
+      class="card"
       >
         <div class="card-body">
           <h5 class="card-title">{{ post.title }}</h5>

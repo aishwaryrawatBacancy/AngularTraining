@@ -7,6 +7,7 @@ import { PostIndividualComponent } from './task-routing/post-individual/post-ind
 import { LoginComponent } from './login/login.component';
 import { AuthGuard } from './guards/auth.guard';
 import { ResolveGuard } from './guards/resolve.guard';
+import { AuthDeactiveGuard } from './guards/auth-deactive.guard';
 
 const routes : Routes= [
   {
@@ -19,7 +20,8 @@ const routes : Routes= [
   },
   {
     path: 'explore',
-    component: ExploreComponent
+    component: ExploreComponent,
+    
   },
   {
     path: 'post',
@@ -32,7 +34,9 @@ const routes : Routes= [
   {
     path: 'postShow',
     component: PostIndividualComponent,
+    canDeactivate: [AuthDeactiveGuard],
   },
+  { path: '**', component: HomeComponent },
 ]
 
 
