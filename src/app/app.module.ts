@@ -19,6 +19,7 @@ import { PostIndividualComponent } from './task-routing/post-individual/post-ind
 import { LoginComponent } from './login/login.component';
 import { AuthGuard } from './guards/auth.guard';
 import { ResolveGuard } from './guards/resolve.guard';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { ResolveGuard } from './guards/resolve.guard';
     PostsComponent,
     TaskRoutingComponent,
     PostIndividualComponent,
-    LoginComponent
+    LoginComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

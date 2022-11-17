@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
 import { ShareDataService } from './shared/services/share-data.service';
+import { SubjectService } from './shared/services/subject.service';
 
 @Component({
   selector: 'app-root',
@@ -7,14 +9,27 @@ import { ShareDataService } from './shared/services/share-data.service';
   styleUrls: ['./app.component.scss'],
   providers: [ShareDataService]
 })
-export class AppComponent {
+export class AppComponent implements OnInit, OnDestroy{
   title = 'angular-training-app';
 
   menuText: string = 'Home';
   removeHeader: boolean = true;
   showHome = false;
 
-  constructor(private shareDataService: ShareDataService){}
+  footerShow = false;
+  private showSubscription: Subscription;
+
+  constructor(private shareDataService: ShareDataService, private subjectService: SubjectService){}
+
+  ngOnInit(): void {
+    this.showSubscription = this.subjectService.showEmitter.subscribe( didshow => {
+      this.footerShow = didshow;
+    } )
+  }
+
+  ngOnDestroy(): void {
+    this.showSubscription.unsubscribe();
+  }
 
   changeText(){
     this.menuText = "About";

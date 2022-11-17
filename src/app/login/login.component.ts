@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../shared/services/auth.service';
+import { SubjectService } from '../shared/services/subject.service';
 
 @Component({
   selector: 'app-login',
@@ -8,7 +9,7 @@ import { AuthService } from '../shared/services/auth.service';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private authService: AuthService) { }
+  constructor(private authService: AuthService, private subjectService: SubjectService) { }
 
   ngOnInit(): void {
   }
@@ -19,5 +20,9 @@ export class LoginComponent implements OnInit {
 
   logout() {
     this.authService.logout();
+  }
+
+  onShowFooter() {
+    this.subjectService.showEmitter.next(true);
   }
 }
