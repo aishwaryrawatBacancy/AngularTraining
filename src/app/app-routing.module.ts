@@ -22,7 +22,7 @@ const routes: Routes = [
     resolve: { PostsData: PostsDataGuard },
   },
   {
-    path: 'post',
+    path: 'posts/:id',
     component: PostDataComponent,
     canActivate: [AuthActivateGuard],
   },

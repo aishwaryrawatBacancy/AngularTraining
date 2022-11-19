@@ -22,7 +22,7 @@ export class HomeComponent implements OnInit {
 
   updateCount() {
     this.shareDataService.updateCount();
-    console.log('Home component', this.shareDataService.count);
+    // console.log('Home component', this.shareDataService.count);
   }
 
   cardDetailDisplay(carddata: any) {

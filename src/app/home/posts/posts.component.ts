@@ -24,7 +24,7 @@ export class PostsComponent implements OnInit {
     console.log('Post Component 1', this.shareDataService.count);
   }
 
-  viewDetails(carddata: cardData) {
+  viewDetails() {
     this.viewCardDetail.emit(this.cardDataSel);
   }
 }

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PostDataService } from '../shared/services/post-data.service';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
+import { PostsData } from './posts-data';
 
 @Component({
   selector: 'app-posts-data',
@@ -9,14 +10,12 @@ import { ActivatedRoute, Router } from '@angular/router';
   providers: [PostDataService],
 })
 export class PostsDataComponent implements OnInit {
-  public posts: any[] = [];
+  public posts: PostsData[] = [];
   public queryParams_postId: number = 1;
-  public queryParamsData: any = [];
 
   constructor(
     private postDataService: PostDataService,
     private router: Router,
-    private route: ActivatedRoute
   ) {}
 
   ngOnInit(): void {
@@ -32,6 +31,6 @@ export class PostsDataComponent implements OnInit {
 
 
   onClick(id: number): void {
-    this.router.navigate(['post'], {queryParams: {id: id}});
+    this.router.navigate([`posts/${id}`]);
   }
 }

@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 
 @Injectable()
 export class ShareDataService {
-  count = 0;
+  count: number = 0;
   userPosts: any[] = [];
   cardDetail: any[] = []
 

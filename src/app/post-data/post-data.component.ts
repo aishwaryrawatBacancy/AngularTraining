@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { PostDataService } from '../shared/services/post-data.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { IDeactivate } from '../guard/auth-deactivate.guard';
+import { PostData } from './post-data';
 
 @Component({
   selector: 'app-post-data',
@@ -10,18 +11,27 @@ import { IDeactivate } from '../guard/auth-deactivate.guard';
   providers: [PostDataService],
 })
 export class PostDataComponent implements OnInit, IDeactivate {
-  public post: any = {};
+  public post: PostData = {
+    userId: 0,
+    id: 0,
+    title: '',
+    body: '',
+  };
   public comments: any = [];
   public id: string = '';
 
   constructor(
     private postDataService: PostDataService,
-    private router: Router,
     private route: ActivatedRoute
   ) {}
 
   ngOnInit(): void {
-    this.id = this.route.snapshot.queryParams['id'];
+    // using queryParams
+    // this.id = this.route.snapshot.queryParams['id'];
+
+    // using routing file
+    this.route.params.subscribe((params) => (this.id = params['id']));
+
     this.postDataService
       .getPost(this.id)
       .subscribe((data) => (this.post = data));
