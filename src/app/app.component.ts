@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { response } from 'express';
+import { PostService } from './services/post.service';
 import { ShareDataService } from './shared/services/share-data.service';
 
 @Component({
@@ -6,14 +8,15 @@ import { ShareDataService } from './shared/services/share-data.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
 })
-export class AppComponent {
+export class AppComponent  implements OnInit{
   title = 'angular-training-app';
 
   menuText: string = 'Home';
   removeHeader: boolean = true;
   showHome = false;
+  posts:any;
 
-  constructor(){}
+  constructor(private postService: PostService){}
 
   changeText(){
     this.menuText = "About";
@@ -40,4 +43,8 @@ export class AppComponent {
   //   this.menuChange(this.shareDataService.selectedMenu)
   // }
   //unless directive - structural directive - 
+  
+  ngOnInit(): void {
+    this.postService.getPosts().subscribe(response =>( this.posts = response));
+  }
 }

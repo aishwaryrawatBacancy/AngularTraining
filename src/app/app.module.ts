@@ -11,7 +11,11 @@ import { DropdownDirective } from './shared/directives/dropdown-directive/dropdo
 
 import { HttpClientModule } from '@angular/common/http';
 import { ExploreComponent } from './explore/explore.component';
-import { PostsComponent } from './home/posts/posts.component';
+import { PostsComponent } from './posts/posts.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { AppRoutingModule } from './app-routing.module';
+import { PostEditComponent } from './post-edit/post-edit.component';
+import { PostViewComponent } from './post-view/post-view.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,11 +26,15 @@ import { PostsComponent } from './home/posts/posts.component';
     ShowDropdownDirective,
     DropdownDirective,
     ExploreComponent,
-    PostsComponent
+    PostsComponent,
+    DashboardComponent,
+    PostEditComponent,
+    PostViewComponent
   ],
   imports: [
     BrowserModule,
-    HttpClientModule
+    HttpClientModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
