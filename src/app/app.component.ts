@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import { ShareDataService } from './shared/services/share-data.service';
 import {CounterService} from "./shared/services/counter.service";
 import {GlobalService} from "./shared/services/global-service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-root',
@@ -15,9 +16,9 @@ export class AppComponent implements OnInit{
   removeHeader: boolean = true;
   showHome = false;
 
-  constructor(private globalService: GlobalService){
+  constructor(private globalService: GlobalService, private router: Router){
     globalService.showHomeChange.subscribe((value) => {
-      console.log(value)
+      console.log(value);
       this.showHome = value.isHomeVisible;
     });
   }

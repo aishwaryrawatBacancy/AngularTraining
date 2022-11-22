@@ -12,6 +12,12 @@ import { DropdownDirective } from './shared/directives/dropdown-directive/dropdo
 import { HttpClientModule } from '@angular/common/http';
 import { ExploreComponent } from './explore/explore.component';
 import { PostsComponent } from './home/posts/posts.component';
+import {AppRoutingModule} from "./app-routing.module";
+import { ExternalPostsComponent } from './app/external-posts/external-posts.component';
+import { EditPostComponent } from './app/edit-post/edit-post.component';
+import { PostCommentsComponent } from './app/post-comments/post-comments.component';
+import {AuthGuard} from "./shared/guard/Auth-guard";
+import {AuthService} from "./shared/services/auth-service";
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,13 +28,17 @@ import { PostsComponent } from './home/posts/posts.component';
     AddClassCardDirective,
     DropdownDirective,
     ExploreComponent,
-    PostsComponent
+    PostsComponent,
+    ExternalPostsComponent,
+    EditPostComponent,
+    PostCommentsComponent
   ],
   imports: [
     BrowserModule,
-    HttpClientModule
+    HttpClientModule,
+    AppRoutingModule
   ],
-  providers: [],
+  providers: [AuthGuard, AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

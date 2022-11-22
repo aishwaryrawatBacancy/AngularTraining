@@ -1,5 +1,6 @@
 import { Component,Input,Output,EventEmitter, OnInit, OnChanges, OnDestroy,AfterContentInit,AfterViewInit, AfterViewChecked, AfterContentChecked } from '@angular/core';
 import { ShareDataService } from '../shared/services/share-data.service';
+import {AuthService} from "../shared/services/auth-service";
 
 @Component({
   selector: 'app-header',
@@ -11,7 +12,7 @@ export class HeaderComponent implements OnInit {
   @Input() menu: string = '';
   @Output() menuChangeEmitter = new EventEmitter<string>();
 
-  constructor(private shareDataService: ShareDataService) { }
+  constructor(private shareDataService: ShareDataService, private authService: AuthService) { }
 
   // ngOnChanges(){
   //   //Whenever there is any change in the Input Bound Properties of the Component.
@@ -32,8 +33,17 @@ export class HeaderComponent implements OnInit {
     this.shareDataService.updateCount()
     console.log("Header Component", this.shareDataService.count);
   }
+
+  login() {
+    this.authService.login();
+  }
+
+  logout() {
+    this.authService.logout();
+  }
+
   // ngDoCheck(){
-  //   //only for debugging: 
+  //   //only for debugging:
   //   console.log("Do Check hook")
   // }
 
@@ -41,7 +51,7 @@ export class HeaderComponent implements OnInit {
   //   console.log("After Content Init", this.menu);
   // }
 
-  
+
   // ngAfterContentChecked(){
   //   console.log("After Cpntent Checked", this.menu);
   // }
@@ -70,4 +80,4 @@ export class HeaderComponent implements OnInit {
   5. Directives
   6. content projection
   7. lifecycle hooks - ?
-*/ 
+*/

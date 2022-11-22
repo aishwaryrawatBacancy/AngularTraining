@@ -1,0 +1,14 @@
+<div>
+  <h3>Posts</h3>
+  <table>
+    <tbody>
+    <tr *ngFor="let post of posts">
+      <td>{{post.title}}</td>
+      <td class="edit"><a [routerLink]="[post.id, 'edit']">Edit</a></td>
+      <td><a [routerLink]="['comments']" [queryParams]="{'postId': post.id}">Get Comments</a></td>
+    </tr>
+    </tbody>
+  </table>
+  <hr>
+  <router-outlet></router-outlet>
+</div>

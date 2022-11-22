@@ -1,6 +1,5 @@
-<app-header [menu]="menuText" (menuChangeEmitter)="menuChange($event)">
-</app-header>
-{{showHome}}
-<app-home *appUnless="!showHome"></app-home>
-<app-explore *appUnless="showHome"></app-explore>
-
+<app-header [menu]="menuText" (menuChangeEmitter)="menuChange($event)"></app-header>
+<!--{{showHome}}-->
+<!--<app-home *appUnless="!showHome"></app-home>-->
+<!--<app-explore *appUnless="showHome"></app-explore>-->
+<router-outlet></router-outlet>
