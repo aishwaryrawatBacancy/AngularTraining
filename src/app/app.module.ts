@@ -15,7 +15,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { UserPostsComponent } from './user-posts/user-posts.component';
 import { PreviewPostComponent } from './user-posts/preview-post/preview-post.component';
 import { UserLoginComponent } from './user-login/user-login.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { TemplateFormComponent } from './template-form/template-form.component';
+import { ReactiveFormComponent } from './reactive-form/reactive-form.component';
 
 @NgModule({
   declarations: [
@@ -29,13 +31,16 @@ import { FormsModule } from '@angular/forms';
     PostsComponent,
     UserPostsComponent,
     PreviewPostComponent,
-    UserLoginComponent
+    UserLoginComponent,
+    TemplateFormComponent,
+    ReactiveFormComponent,
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,0 +1,15 @@
+<div class="container">
+    <form #myForm="ngForm" (ngSubmit)="onSubmitTemplateBased(myForm.value)">
+        <div class="mb-3">
+            <label>First name</label>
+            <input class="form-control" type="text" name="firstName" [(ngModel)]="user.firstName" required>
+            <div *ngIf="myForm.value.firstName === ''">First name is required.</div>
+        </div>
+        <div class="mb-3">
+            <label>Password</label>
+            <input class="form-control" type="password" name="password" [(ngModel)]="user.password" required>
+            <div *ngIf="myForm.value.password === ''">Password is required.</div>
+        </div>
+        <button class="btn btn-primary" type="submit" [disabled]="!myForm.valid">Submit</button>
+    </form>
+</div>
