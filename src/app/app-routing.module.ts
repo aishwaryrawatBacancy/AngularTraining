@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ExploreComponent } from './explore/explore.component';
+import { FilterPageComponent } from './filter-page/filter-page.component';
 import { AuthCanActiveGuard } from './guards/auth-can-active.guard';
 import { NoAuthCanActiveGuard } from './guards/no-auth-can-active.guard';
 import { HomeComponent } from './home/home.component';
@@ -20,6 +21,7 @@ const routes: Routes = [
   { path: 'login', component: UserLoginComponent, canActivate: [NoAuthCanActiveGuard] },
   { path: 'template-form', component: TemplateFormComponent },
   { path: 'reactive-form', component: ReactiveFormComponent },
+  { path: 'pipe-filter', component: FilterPageComponent },
   { path: '**', component: HomeComponent },
 ];
 

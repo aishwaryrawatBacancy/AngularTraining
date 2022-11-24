@@ -18,6 +18,8 @@ import { UserLoginComponent } from './user-login/user-login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TemplateFormComponent } from './template-form/template-form.component';
 import { ReactiveFormComponent } from './reactive-form/reactive-form.component';
+import { FilterPageComponent } from './filter-page/filter-page.component';
+import { SearchFilterPipe } from './pipes/search-filter.pipe';
 
 @NgModule({
   declarations: [
@@ -34,6 +36,8 @@ import { ReactiveFormComponent } from './reactive-form/reactive-form.component';
     UserLoginComponent,
     TemplateFormComponent,
     ReactiveFormComponent,
+    FilterPageComponent,
+    SearchFilterPipe,
   ],
   imports: [
     BrowserModule,
