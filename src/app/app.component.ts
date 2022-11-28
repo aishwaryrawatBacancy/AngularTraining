@@ -52,12 +52,12 @@ export class AppComponent implements OnInit, OnDestroy{
 
 
   ngAfterViewChecked(){
-    console.log('selectecdMenu : ',this.shareDataService.selectedMenu)
+    // console.log('selectecdMenu : ',this.shareDataService.selectedMenu)
     this.menuChange(this.shareDataService.selectedMenu)
   }
 
   ngAfterContentChecked(){
-    console.log('selectecdMenu content check: ',this.shareDataService.selectedMenu)
+    // console.log('selectecdMenu content check: ',this.shareDataService.selectedMenu)
     this.menuChange(this.shareDataService.selectedMenu)
   }
   //unless directive - structural directive - 

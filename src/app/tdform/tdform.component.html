@@ -1,0 +1,65 @@
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12 col-sm-10-col-md-8 col-sm-offset-1 col-md-offset-2">
+            <form (ngSubmit)="onSubmit()" #form="ngForm">
+                <div class="form-group m-3">
+                    <label for="email">Email :</label>
+                    <input type="email" id="email" ngModel name="email" required email class="form-control" #email="ngModel" appEmailvalidator>
+                    <span class="help-block" *ngIf="!email.valid && email.touched">
+                        <span class="help-block" *ngIf="email.hasError('required')">
+                            Email is required !
+                        </span>
+                        <span class="help-block" *ngIf="email.hasError('invalidPassword')">
+                            Please enter a valid email !!!
+                        </span>
+                        
+                    </span>
+                </div>
+                <div class="form-group m-3">
+                    <label for="subscription">Choose a Subscription :</label>
+                    <select name="subsctiption" id="subscription" [ngModel]="selectedSubscription" class="form-control">
+                        <option *ngFor="let sub of subscription" [value]="sub">{{sub}}</option>
+                    </select>
+                </div>
+                <div class="form-group m-3">
+                    <label for="password">Password :</label>
+                    <input type="password" id="password" name="password" ngModel required class="form-control" #password="ngModel">
+                    <span class="help-block" *ngIf="!password.valid && password.touched">Password is required!</span>
+                </div>
+                <div class="form-group m-3">
+                    <label for="confirmpassword">Confirm Password :</label>
+                    <input type="password" id="confirmpassword" name="confirmpassword" ngModel required class="form-control" #confirmpassword="ngModel"
+                    appPasswordvalidator = "password">
+                    <span class="help-block" *ngIf="!confirmpassword.valid && confirmpassword.touched">
+                        <span class="help-block" *ngIf="confirmpassword.hasError('required')">
+                            Confirm password is required!
+                        </span>
+                        <span class="help-block" *ngIf="confirmpassword.hasError('passwordMatchError')">
+                            Please enter a same password & confirm password
+                        </span>
+                        
+                    </span>
+                   
+                </div>
+                <div class="form-group m-3">
+                    <label for="number">Contact Number :</label>
+                    <input type="number" id="number" name="number" ngModel required class="form-control" #number="ngModel" >
+                    <span class="help-block" *ngIf="!number.valid && number.touched">
+                        <span class="help-block" *ngIf="number.hasError('required')">
+                            Number id required!
+                        </span>
+                        <span class="help-block" *ngIf="number.toString().length === 10">
+                            Please enter a Valid number & is should be 10 digit.
+                        </span>
+                    </span>
+                </div>
+                <button class="btn btn-primary m-3"
+                type="submit" [disabled]="!form.valid">
+                    Submit
+                </button>
+            </form>
+        </div>
+    </div>
+</div>
+
+

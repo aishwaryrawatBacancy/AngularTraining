@@ -1,0 +1,71 @@
+<div class="container">
+    <div class="riow">
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+                <div class="form-group m-3">
+                    <label for="username">Username :</label>
+                    <input type="text" id="username" formControlName="username" class="form-control">
+                    <span *ngIf="!signupForm.get('username')?.valid && signupForm.get('username')?.touched"
+                        class="help-block"> Username is Required!</span>
+                </div>
+                <div class="form-group m-3">
+                    <label for="email">Email :</label>
+                    <input type="text" id="email" formControlName="email" class="form-control">
+                    <span *ngIf="!signupForm.get('email')?.valid && signupForm.get('email')?.touched"
+                        class="help-block">
+                        <span *ngIf="signupForm.get('email')?.hasError('required')">
+                            Emaili is required!
+                        </span>
+                        <span *ngIf="signupForm.get('email')?.hasError('emailIsForbidden')">
+                            Please enter a valid email!
+                        </span>
+                    </span>
+                </div>
+                <div class="form-group m-3">
+                    <label for="password">Password :</label>
+                    <input type="password" id="password" formControlName="password" class="form-control">
+                    <span *ngIf="!signupForm.get('password')?.valid && signupForm.get('password')?.touched"
+                        class="help-block">
+                        <span  *ngIf="signupForm.get('password')?.hasError('required')">
+                            password Required!
+                        </span>
+                        <span  *ngIf="signupForm.get('password')?.hasError('minlength')">
+                            Password must be 6!
+                        </span>
+                    </span>
+                </div>
+                <div class="form-group m-3">
+                    <label for="confirmpassword">Confirm password :</label>
+                    <input type="confirmpassword" id="confirmpassword" formControlName="confirmpassword"
+                        class="form-control">
+                    <span *ngIf="!signupForm.get('confirmpassword')?.valid && signupForm.get('confirmpassword')?.touched"
+                        class="help-block">
+                        <span  *ngIf="signupForm.get('confirmpassword')?.hasError('required')">
+                            confirmpassword Required!
+                        </span>
+                        <span  *ngIf="signupForm.get('confirmpassword')?.hasError('minlength')">
+                            confirmpassword must be 6!
+                        </span>
+                        <span  *ngIf="signupForm.get('confirmpassword')?.hasError('MustMatch')">
+                           Password and Conform password did not match!!!
+                        </span>
+                    </span>
+                </div>
+                <div class="radio m-3" *ngFor="let gender of genders">
+                    <label for="username">
+                        <input type="radio" [value]="gender" formControlName="gender">
+                        {{gender}}
+                    </label>
+                </div>
+                <div formArrayName="hobbies" class="m-3">
+                    <h4>Hobbies</h4>
+                    <button class="btn btn-default" type="button" (click)="onAddHobby()">Add Hobby</button>
+                    <div class="form-group" *ngFor="let hobbyControl of controls; let i = index">
+                        <input type="text" class="form-control" [formControlName]="i">
+                    </div>
+                </div>
+                <button class="btn btn-primary" type="submit" [disabled]="!signupForm.valid">Submit</button>
+            </form>
+        </div>
+    </div>
+</div>

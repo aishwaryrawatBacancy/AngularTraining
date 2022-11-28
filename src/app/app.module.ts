@@ -21,6 +21,12 @@ import { AuthGuard } from './guards/auth.guard';
 import { ResolveGuard } from './guards/resolve.guard';
 import { FooterComponent } from './footer/footer.component';
 
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { TdformComponent } from './tdform/tdform.component';
+import { ReactiveformComponent } from './reactiveform/reactiveform.component';
+import { PasswordvalidatorDirective } from './shared/directives/validation/passwordvalidator.directive';
+import { EmailvalidatorDirective } from './shared/directives/validation/emailvalidator.directive';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -35,13 +41,19 @@ import { FooterComponent } from './footer/footer.component';
     TaskRoutingComponent,
     PostIndividualComponent,
     LoginComponent,
-    FooterComponent
+    FooterComponent,
+    TdformComponent,
+    ReactiveformComponent,
+    PasswordvalidatorDirective,
+    EmailvalidatorDirective
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
-    RouterModule
+    RouterModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [AuthGuard, ResolveGuard],
   bootstrap: [AppComponent]

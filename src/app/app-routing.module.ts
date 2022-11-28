@@ -8,11 +8,24 @@ import { LoginComponent } from './login/login.component';
 import { AuthGuard } from './guards/auth.guard';
 import { ResolveGuard } from './guards/resolve.guard';
 import { AuthDeactiveGuard } from './guards/auth-deactive.guard';
+import { TdformComponent } from './tdform/tdform.component';
+import { ReactiveformComponent } from './reactiveform/reactiveform.component';
+
 
 const routes : Routes= [
   {
     path: '',
-    component: LoginComponent
+    component: LoginComponent,
+    children: [
+      {
+        path: 'tdform',
+        component: TdformComponent
+      },
+      {
+        path: 'reactiveform',
+        component: ReactiveformComponent
+      },
+    ]
   },
   {
     path: 'home',

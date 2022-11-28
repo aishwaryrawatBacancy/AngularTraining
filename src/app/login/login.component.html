@@ -2,11 +2,18 @@
     <h1 id="login-text">Login</h1>
 </div>
 
-<div class="login-div">
+<!-- <div class="login-div">
     <button type="button" class="btn btn-primary" (click)="login()">login</button>
     <button type="button" class="btn btn-danger" (click)="logout()">logOut</button>
 </div>
 
 <div class="login-div">
     <button type="button" class="btn btn-primary" (click)="onShowFooter()">Show Footer</button>
+</div> -->
+
+<div class="login-div">
+    <button type="button" class="btn btn-primary" routerLink="/tdform" routerLinkActive="active">TD Form</button>
+    <button type="button" class="btn btn-primary" routerLink="/reactiveform" routerLinkActive="active">Reactive Form</button>
 </div>
+
+<router-outlet></router-outlet>

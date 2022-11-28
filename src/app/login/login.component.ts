@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { AuthService } from '../shared/services/auth.service';
 import { SubjectService } from '../shared/services/subject.service';
 
@@ -8,6 +9,7 @@ import { SubjectService } from '../shared/services/subject.service';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
+ 
 
   constructor(private authService: AuthService, private subjectService: SubjectService) { }
 
@@ -25,4 +27,5 @@ export class LoginComponent implements OnInit {
   onShowFooter() {
     this.subjectService.showEmitter.next(true);
   }
+
 }
