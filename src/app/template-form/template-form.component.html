@@ -1,15 +1,36 @@
 <div class="container">
-    <form #myForm="ngForm" (ngSubmit)="onSubmitTemplateBased(myForm.value)">
+    <form #myForm="ngForm" (ngSubmit)="onSubmitTemplateBased(myForm.valid, myForm.value)">
         <div class="mb-3">
             <label>First name</label>
-            <input class="form-control" type="text" name="firstName" [(ngModel)]="user.firstName" required>
-            <div *ngIf="myForm.value.firstName === ''">First name is required.</div>
+            <input class="form-control" type="text" #firstName="ngModel" name="firstName" ngModel required>
+            <div *ngIf="firstName.touched">
+                <p *ngIf="firstName.errors?.['required']">First name is a required field!</p>
+            </div>
+        </div>
+        <div class="mb-3">
+            <label>Email</label>
+            <input class="form-control" type="email" name="email" #email="ngModel" pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$" ngModel required>
+            <div *ngIf="email.touched">
+                <p *ngIf="email.errors?.['required']">Email is a required field!</p>
+                <p *ngIf="email.errors?.['pattern']">This is not a valid Email!!!</p>
+            </div>
         </div>
         <div class="mb-3">
             <label>Password</label>
-            <input class="form-control" type="password" name="password" [(ngModel)]="user.password" required>
-            <div *ngIf="myForm.value.password === ''">Password is required.</div>
+            <input class="form-control" type="password" #password="ngModel" name="password" ngModel required>
+            <div *ngIf="password.touched">
+                <p *ngIf="password.errors?.['required']">Password is a required field!</p>
+            </div>
         </div>
-        <button class="btn btn-primary" type="submit" [disabled]="!myForm.valid">Submit</button>
+        <div class="mb-3">
+            <label>Confirm password</label>
+            <input class="form-control" type="password" #confirmPassword="ngModel" name="confirmPassword" ngModel required>
+            <div *ngIf="confirmPassword.touched">
+                <p *ngIf="confirmPassword.value !== password.value">Password and confirm password is not matching!</p>
+                <p *ngIf="confirmPassword.errors?.['required']">Confirm Password is a required field!</p>
+            </div>
+        </div>
+        <p *ngIf="showValidationMessage">Please fill required fields with proper validation.</p>
+        <button class="btn btn-primary" type="submit">Submit</button>
     </form>
 </div>

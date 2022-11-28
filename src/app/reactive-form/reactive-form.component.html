@@ -3,13 +3,34 @@
         <div class="mb-3">
             <label>First name</label>
             <input class="form-control" type="text" name="firstName" formControlName="firstName">
-            <div *ngIf="form.value.firstName === ''">First name is required.</div>
+            <div *ngIf="form.controls.firstName?.touched">
+                <p *ngIf="form.controls.firstName?.errors?.['required'] === true">First name is a required field!</p>
+            </div>
+        </div>
+        <div class="mb-3">
+            <label>Email</label>
+            <input class="form-control" type="email" name="email" formControlName="email">
+            <div *ngIf="form.controls.email?.touched">
+                <p *ngIf="form.controls.email?.errors?.['required'] === true">Email is a required field!</p>
+                <p *ngIf="form.controls.email?.errors?.['isEmailValidate'] === false">This is not a valid Email!!!</p>
+            </div>
         </div>
         <div class="mb-3">
             <label>Password</label>
             <input class="form-control" type="password" name="password" formControlName="password">
-            <div *ngIf="form.value.password === ''">Password is required.</div>
+            <div *ngIf="form.controls.password?.touched">
+                <p *ngIf="form.controls.password?.errors?.['required'] === true">Password is a required field!!</p>
+            </div>
         </div>
-        <button class="btn btn-primary" type="submit" [disabled]="!form.valid">Submit</button>
+        <div class="mb-3">
+            <label>Confirm Password</label>
+            <input class="form-control" type="password" name="password" formControlName="confirmPassword">
+            <div *ngIf="form.controls.confirmPassword?.touched">
+                <p *ngIf="form.controls.confirmPassword?.errors?.['required'] === true">Confirm Password is a required field!!</p>
+                <p *ngIf="form.errors?.['isPassAndConfirmPassMatch'] === false">Password and confirm password is not matching!!</p>
+            </div>
+        </div>
+        <p *ngIf="showValidationMessage">Please fill required fields with proper validation.</p>
+        <button class="btn btn-primary" type="submit">Submit</button>
     </form>
 </div>

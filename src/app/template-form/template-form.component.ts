@@ -12,13 +12,16 @@ export class TemplateFormComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  public user: any = {
-    firstName: '',
-    password:  ''
-  };
+  public showValidationMessage: boolean = false;
 
-  onSubmitTemplateBased(user: any) {
+  onSubmitTemplateBased(isFormValidate: any, user: any) {
+    if(isFormValidate && user.password === user.confirmPassword){
+      this.showValidationMessage = false;
       console.log(user);
+    }
+    else{
+      this.showValidationMessage = true;
+    }
   }
 
 }
