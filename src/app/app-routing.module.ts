@@ -6,6 +6,8 @@ import {ExternalPostsComponent} from "./app/external-posts/external-posts.compon
 import {EditPostComponent} from "./app/edit-post/edit-post.component";
 import {PostCommentsComponent} from "./app/post-comments/post-comments.component";
 import {AuthGuard} from "./shared/guard/Auth-guard";
+import {RegisterComponent} from "./app/register/register.component";
+import {TempRegisterComponent} from "./app/temp-register/temp-register.component";
 
 const routes: Routes = [
   {
@@ -15,6 +17,14 @@ const routes: Routes = [
   {
     path: 'explore',
     component: ExploreComponent
+  },
+  {
+    path: 'register',
+    component: RegisterComponent
+  },
+  {
+    path: 'td-register',
+    component: TempRegisterComponent
   },
   {
     path: 'posts',

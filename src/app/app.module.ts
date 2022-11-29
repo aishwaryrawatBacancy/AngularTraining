@@ -18,6 +18,10 @@ import { EditPostComponent } from './app/edit-post/edit-post.component';
 import { PostCommentsComponent } from './app/post-comments/post-comments.component';
 import {AuthGuard} from "./shared/guard/Auth-guard";
 import {AuthService} from "./shared/services/auth-service";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import { RegisterComponent } from './app/register/register.component';
+import { TempRegisterComponent } from './app/temp-register/temp-register.component';
+import { MatchPwdDirective } from './shared/directives/match-pwd.directive';
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,12 +35,17 @@ import {AuthService} from "./shared/services/auth-service";
     PostsComponent,
     ExternalPostsComponent,
     EditPostComponent,
-    PostCommentsComponent
+    PostCommentsComponent,
+    RegisterComponent,
+    TempRegisterComponent,
+    MatchPwdDirective
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule,
+    FormsModule
   ],
   providers: [AuthGuard, AuthService],
   bootstrap: [AppComponent]

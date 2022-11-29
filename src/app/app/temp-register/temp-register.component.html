@@ -1,0 +1,77 @@
+<div class="container-fluid">
+  <h2 class="p-3 text-center">Registration Form</h2>
+  <form #userForm="ngForm" (ngSubmit)="register()" [appMatchPwd]="['password', 'confirm_password']">
+    <div class="form-group row pb-3">
+      <label for="name" class="col-2 col-form-label text-end">Name</label>
+      <div class="col-8">
+        <input type="text" id="name" [(ngModel)]="user.name" class="form-control" required #name="ngModel" name="name">
+        <div class="text-danger" *ngIf="name.touched && name.errors?.required">Name is required</div>
+      </div>
+    </div>
+    <div class="form-group row pb-3">
+      <label for="email" class="col-2 col-form-label text-end">Email</label>
+      <div class="col-8">
+        <input class="form-control" type="text" id="email" [(ngModel)]="user.email" name="email" required #email="ngModel"
+               pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
+        <div class="text-danger" *ngIf="email.touched && email.errors?.required">Email is required</div>
+        <div class="text-danger" *ngIf="email.touched && email.errors?.pattern">Email is not valid</div>
+      </div>
+    </div>
+    <div class="form-group row pb-3">
+      <label for="phone" class="col-2 col-form-label text-end">Phone</label>
+      <div class="col-8">
+        <input class="form-control" type="text" id="phone" [(ngModel)]="user.phone" name="phone" required #phone="ngModel" minlength="10"
+        pattern="^[0-9]*$">
+        <div class="text-danger" *ngIf="phone.touched">
+          <span *ngIf="phone.errors?.required">Phone is required</span>
+          <span *ngIf="phone.errors?.minlength"> Phone is can not be less than 10 digits.</span>
+          <span *ngIf="phone.errors?.pattern"> Please enter only numbers</span>
+        </div>
+      </div>
+    </div>
+    <div class="form-group row pb-3">
+      <label class="col-2 col-form-label text-end">Gender</label>
+      <div class="col-8">
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" id="male" [(ngModel)]="user.gender" value="male" name="gender" required #gender="ngModel">
+          <label for="male" class="form-check-label">Male</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" id="female" [(ngModel)]="user.gender" value="female" name="gender" required #gender="ngModel">
+          <label for="female" class="form-check-label">Female</label>
+        </div>
+        <div class="text-danger" *ngIf="gender.touched && gender.errors?.required">Gender is required</div>
+      </div>
+    </div>
+    <div class="form-group row mb-3">
+      <label for="hobby" class="col-2 col-form-label text-end">Hobby</label>
+      <div class="col-8">
+        <select class="form-select" id="hobby" [(ngModel)]="user.hobby" name="hobby" required #hobby="ngModel">
+          <option value="" disabled selected>Please select any value</option>
+          <option [value]="hobby" *ngFor="let hobby of hobbies">{{hobby}}</option>
+        </select>
+        <div class="text-danger" *ngIf="hobby.touched && hobby.errors?.required">Hobby is required</div>
+      </div>
+    </div>
+    <div>
+      <div class="form-group row pb-3">
+        <label class="col-2 col-form-label col-form-label text-end" for="pwd">Password</label>
+        <div class="col-8">
+          <input type="password" class="form-control" id="pwd" [(ngModel)]="user.password" name="password" required #password="ngModel">
+        </div>
+      </div>
+      <div class="form-group row pb-3">
+        <label class="col-2 col-form-label col-form-label text-end" for="cPwd">Confirm Password</label>
+        <div class="col-8">
+          <input type="password" class="form-control" id="cPwd" [(ngModel)]="user.confirm_password" name="confirm_password" required #confirm_password="ngModel">
+          <div class="text-danger" *ngIf="confirm_password.errors?.matching">Password not match</div>
+        </div>
+      </div>
+    </div>
+    <div class="form-group row">
+      <div class="col-10">
+        <button class="btn btn-primary float-end" [disabled]="!userForm.valid">Submit</button>
+      </div>
+    </div>
+  </form>
+</div>
