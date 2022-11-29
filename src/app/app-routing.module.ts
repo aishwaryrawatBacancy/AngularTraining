@@ -5,6 +5,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { PostEditComponent } from './post-edit/post-edit.component';
 import { PostViewComponent } from './post-view/post-view.component';
 import { PostsComponent } from './posts/posts.component';
+import { SignupComponent } from './signup/signup.component';
 
 
 const routes: Routes = [
@@ -23,6 +24,10 @@ const routes: Routes = [
   { 
     path: 'post/:id', 
     component: PostEditComponent 
+  },
+  {
+    path: 'signup',
+    component: SignupComponent
   }
 ];
 

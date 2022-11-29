@@ -1,0 +1,67 @@
+<div>
+    <div>
+        <form [formGroup]="myForm" (ngSubmit)="myForm.valid && signUpFormSubmit(myForm)">
+            <h3>Signup Page using Inbuild angilar validatation</h3>
+            <div>
+                <label for="">Name</label>
+                <input type="text" formControlName="name">
+                <div class="alert alert-danger" *ngIf="myForm.get('name')?.hasError('required') && myForm.get('name')?.touched">Name is required</div>
+            </div>
+            <div>
+                <label for="">Email</label>
+                <input type="text" formControlName="email">
+                <div class="alert alert-danger" *ngIf="myForm.get('email')?.hasError('required') && myForm.get('email')?.touched">Email is required</div>
+            </div>
+            <div>
+                <label for="">Password</label>
+                <input type="text" formControlName="password">
+                <div class="alert alert-danger" *ngIf="myForm.get('password')?.hasError('required') && myForm.get('password')?.touched">Password is required</div>
+            </div>
+            <div>
+                <label for="">Confirm Password</label>
+                <input type="text" formControlName="confirmPassword">
+                <div class="alert alert-danger" *ngIf="myForm.get('confirmPassword')?.hasError('required') && myForm.get('confirmPassword')?.touched">Confirm Password is required</div>
+            </div>
+            <div>
+                <input type="submit"  value="Sign-Up">
+                <!-- [disabled]="myForm.invalid" -->
+            </div>
+        </form>
+    </div>
+
+
+
+    <div>
+        <form [formGroup]="signUpForm" (ngSubmit)="signUpFormSubmit(signUpForm)" novalidate class="form">
+            <h3>Signup Page using custom validatation</h3>
+            <div>
+                <label for="">Name</label>
+                <input type="text" formControlName="name">
+                <div class="alert alert-danger" *ngIf="signUpForm.get('name')?.hasError('requiredCustomValidation') && signUpForm.get('name')?.touched">Name is required</div>
+            </div>
+            <div>
+                <label for="">Email</label>
+                <input type="text" formControlName="email">
+                <div class="alert alert-danger" *ngIf="signUpForm.get('email')?.hasError('required') && signUpForm.get('email')?.touched">Email is required</div>
+            </div>
+            <div>
+                <label for="">Password</label>
+                <input type="text" formControlName="password">
+                <div class="alert alert-danger" *ngIf="signUpForm.get('password')?.hasError('required') && signUpForm.get('password')?.touched">Password is required</div>
+            </div>
+            <div>
+                <label for="">Confirm Password</label>
+                <input type="text" formControlName="confirmPassword">
+                <div class="alert alert-danger" *ngIf="signUpForm.get('confirmPassword')?.hasError('required') && signUpForm.get('confirmPassword')?.touched">Confirm Password is required</div>
+                <div *ngIf="signUpForm.get('confirmPassword')?.hasError('validateMatchPassword')">Password and Confirm Password must be match.</div>
+
+            </div>
+            <div>
+                <input type="submit"  value="Sign-Up">
+                <!-- [disabled]="myForm.invalid" -->
+            </div>
+        </form>
+        <div>{{signUpForm.value | json}}</div>
+        <div>{{signUpForm.status | json }}</div>
+    </div>
+</div>

@@ -16,6 +16,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { AppRoutingModule } from './app-routing.module';
 import { PostEditComponent } from './post-edit/post-edit.component';
 import { PostViewComponent } from './post-view/post-view.component';
+import { SignupComponent } from './signup/signup.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,12 +31,15 @@ import { PostViewComponent } from './post-view/post-view.component';
     PostsComponent,
     DashboardComponent,
     PostEditComponent,
-    PostViewComponent
+    PostViewComponent,
+    SignupComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
