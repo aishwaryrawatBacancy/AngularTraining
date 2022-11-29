@@ -1,0 +1,67 @@
+<h1 class="text-center m-5">Template Driven Form Example</h1>
+
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
+            <form (ngSubmit)="onSubmit()" #f="ngForm">
+                <div id="user-data">
+                    <div class="form-group">
+                        <label for="username">Username</label>
+                        <input type="text" id="username" class="form-control" ngModel name="username" required
+                            #username="ngModel">
+                    </div>
+                    <p *ngIf="!username.valid && username.touched">Please enter a valid username!</p>
+                    <button class="btn btn-default" type="button">Suggest an Username</button>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" class="form-control" ngModel name="email" required email
+                            #email="ngModel">
+                    </div>
+                    <p *ngIf="!email.valid && email.touched">Please enter a valid email!</p>
+                    <div class="form-group">
+                        <label for="contact_number">Contact Number</label>
+                        <input type="number" id="contact_number" class="form-control" ngModel name="contact_number"
+                            required #contact_number="ngModel">
+                    </div>
+                    <p
+                        *ngIf="(!contact_number.valid && contact_number.touched) || (contact_number.touched && contact_number.value?.toString().length !== 10)">
+                        Please enter a valid contact number!</p>
+                </div>
+                <div class="d-flex m-2">Select gender : 
+                    <div class="radio" *ngFor="let gender of genders">
+                        <label>
+                            <input type="radio" name="gender" ngModel="gender" [value]="gender" />
+                            {{gender}}
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="secret">Hobbies</label>
+                    <select id="secret" class="form-control" [ngModel]="defaultHobby" name="hobbies" required
+                        #hobbies="ngModel">
+                        <option value="Singing">Singing</option>
+                        <option value="Dancing">Dancing</option>
+                        <option value="Travelling">Travelling</option>
+                    </select>
+                    <p *ngIf="!hobbies.value && hobbies.touched">Please choose a hobby!</p>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" class="form-control" ngModel name="password" required
+                        #password="ngModel">
+                    <p *ngIf="!password.value && password.touched">Please enter a password!</p>
+
+                    <label for="confirm_password">Confirm Password</label>
+                    <input type="password" id="confirm_password" class="form-control" ngModel name="confirm_password"
+                        required #confirm_password="ngModel">
+                    <p *ngIf="!confirm_password.value && confirm_password.touched">Please enter a confirm password!</p>
+                </div>
+                <p
+                    *ngIf="(password.touched && confirm_password.touched) && (password.value !== confirm_password.value)">
+                    Password and confirm password not matched!</p>
+                <button class="btn btn-primary" type="submit" [disabled]="!f.valid">Submit</button>
+            </form>
+        </div>
+    </div>
+</div>

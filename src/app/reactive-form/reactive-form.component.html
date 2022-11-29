@@ -1,0 +1,56 @@
+<h1 class="text-center m-5">Reactive Form Example</h1>
+
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
+            <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" formControlName="username" class="form-control">
+                    <span *ngIf="!registerForm.get('username')?.valid && registerForm.get('username')?.touched">Please
+                        enter a valid username!</span>
+                </div>
+                <div class="form-group">
+                    <label for="email">email</label>
+                    <input type="text" id="email" formControlName="email" class="form-control">
+                    <span *ngIf="!registerForm.get('email')?.valid && registerForm.get('email')?.touched">Please enter a
+                        valid email!</span>
+                </div>
+                <div class="radio" *ngFor="let gender of genders">
+                    <label>
+                        <input type="radio" formControlName="gender" [value]="gender">{{ gender }}
+                    </label>
+                </div>
+                <div formArrayName="hobbies" class="form-control">
+                    <h4>Hobbies</h4>
+                    <button type="button" (click)="onAddHobby()">Add Hobby</button>
+                    <div class="form-group" *ngFor="let hobbyControl of controls; let i = index">
+                        <input type="text" class="form-control" [formControlName]="i">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="contact_number">Contact Number</label>
+                    <input type="number" id="contact_number" formControlName="contact_number" class="form-control">
+                    <span
+                        *ngIf="!registerForm.get('contact_number')?.valid && registerForm.get('contact_number')?.touched">Please
+                        enter a valid contact number!</span>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" formControlName="password" class="form-control">
+                    <span *ngIf="!registerForm.get('password')?.valid && registerForm.get('password')?.touched">Please
+                        enter a valid password!</span>
+                </div>
+                <div class="form-group">
+                    <label for="confirm_password">Confirm Password</label>
+                    <input type="password" id="confirm_password" formControlName="confirm_password"
+                        class="form-control">
+                    <span
+                        *ngIf="!registerForm.get('confirm_password')?.valid && registerForm.get('confirm_password')?.touched">Please
+                        enter a valid confirm password!</span>
+                </div>
+                <button class="btn btn-primary" type="submit" [disabled]="!registerForm.valid"> Submit</button>
+            </form>
+        </div>
+    </div>
+</div>
