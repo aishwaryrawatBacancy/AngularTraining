@@ -1,0 +1,78 @@
+<div class="card">
+    <div class="card-header">
+        <h3>Template Form</h3>
+    </div>
+    <div class="card-body">
+        <form class="form" #tempForm="ngForm" (ngSubmit)="tempForm.form.valid && onSubmit()" novalidate>
+            <!-- Name input -->
+            <div class="form-outline mb-4">
+                <label class="form-label">Name</label>
+                <input type="text" class="form-control form-control-lg" [(ngModel)]="templateForm.name" name="name" placeholder="Enter your name" #name="ngModel"
+                   placeholder="Enter your name" minlength="2" maxlength="100" required>
+                <span class="text-danger" *ngIf="(name.touched || tempForm.submitted) && name.errors?.['required']">
+                    Name is required
+                </span>
+                <span class="text-danger" *ngIf="name.errors?.['minlength']">
+                    Name must be at least 2 characters
+                </span>
+                <span class="text-danger" *ngIf="name.errors?.['maxlength']">
+                    Name must not exceed 100 characters
+                </span>
+            </div>
+            <!-- Email input -->
+            <div class="form-outline mb-4">
+                <label class="form-label">Email</label>
+                <input type="text" class="form-control form-control-lg" [(ngModel)]="templateForm.email" name="email" placeholder="Enter your email address" #email="ngModel"
+                    required email>
+                <span class="text-danger" *ngIf="(email.touched || tempForm.submitted) && email.errors?.['required']">
+                    Email is required
+                </span>
+                <span class="text-danger" *ngIf="email.touched && email.errors?.['email']">
+                    Enter a valid email address
+                </span>
+            </div>
+            <!-- Phone input -->
+            <div class="form-outline mb-4">
+                <label class="form-label">Phone</label>
+                <input type="text" class="form-control form-control-lg" [(ngModel)]="templateForm.phone" name="phone" placeholder="Enter your phone number" #phone="ngModel" pattern="^((\\+91-?)|0)?[0-9]{10}$" required>
+                <span class="text-danger" *ngIf="(phone.touched || tempForm.submitted) && phone.errors?.['required']">
+                    Phone number is required
+                </span>
+                <span class="text-danger" *ngIf="(phone.touched || tempForm.submitted) && phone.errors?.['pattern']">
+                    Phone number should be only 10 digits
+                </span>
+            </div>
+            <!-- Password input -->
+            <div class="form-outline mb-4">
+                <label class="form-label">Password</label>
+                <input type="password" class="form-control form-control-lg" [(ngModel)]="templateForm.password" name="password" placeholder="Enter password" #password="ngModel" minlength="8" maxlength="20" required>
+                <span class="text-danger"
+                    *ngIf="(password.touched || tempForm.submitted) && password.errors?.['required']">
+                    Password is required
+                </span>
+                <span class="text-danger" *ngIf="password.errors?.['minlength']">
+                    Password must be at least 8 characters
+                </span>
+                <span class="text-danger" *ngIf="password.errors?.['maxlength']">
+                    Password must not exceed 20 characters
+                </span>
+            </div>
+            <!-- Confirm Password input -->
+            <div class="form-outline mb-4">
+                <label class="form-label">Confirm Password</label>
+                <input type="password" class="form-control form-control-lg" [(ngModel)]="templateForm.confirmPassword" name="confirmPassword" placeholder="Confirm password" #confirmPassword="ngModel" required>
+                <span class="text-danger"
+                    *ngIf="(confirmPassword.touched || tempForm.submitted) && confirmPassword.errors?.['required']">
+                    Confirm Password is required
+                </span>
+                <span class="text-danger"
+                    *ngIf="confirmPassword.value?.length && confirmPassword.value !== password.value">
+                    Confirm password does not match with password
+                </span>
+            </div>
+            <div class="form-outline mb-4">
+                <button type="submit" class="btn btn-success">Submit</button>
+            </div>
+        </form>
+    </div>
+</div>

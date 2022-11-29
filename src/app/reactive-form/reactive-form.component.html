@@ -1,0 +1,86 @@
+<div class="card">
+    <div class="card-header">
+        <h3>Reactive Form</h3>
+    </div>
+    <div class="card-body">
+        <form [formGroup]="reactiveForm" #reactForm="ngForm" (ngSubmit)="onSubmit()" novalidate>
+            <!-- Name input -->
+            <div class="form-outline mb-4">
+                <label class="form-label" for="name">Name</label>
+                <input type="text" id="name" class="form-control form-control-lg" formControlName="name"
+                    placeholder="Enter your name" />
+                <div *ngIf="(reactiveFormControl['name'].touched || reactForm.submitted) && reactiveFormControl['name'].errors">
+                    <span class="text-danger" *ngIf="reactiveFormControl['name'].errors?.['required']">
+                        Name is required
+                    </span>
+                    <span class="text-danger" *ngIf="reactiveFormControl['name'].errors?.['minlength']">
+                        Name must be at least 2 characters
+                    </span>
+                    <span class="text-danger" *ngIf="reactiveFormControl['name'].errors?.['maxlength']">
+                        Name must not exceed 100 characters
+                    </span>
+                </div>
+            </div>
+            <!-- Email input -->
+            <div class="form-outline mb-4">
+                <label class="form-label" for="email">Email</label>
+                <input type="email" id="email" class="form-control form-control-lg" formControlName="email"
+                placeholder="Enter a valid email address" />
+                <div *ngIf="(reactiveFormControl['email'].touched || reactForm.submitted) && reactiveFormControl['email'].errors">
+                    <span class="text-danger" *ngIf="reactiveFormControl['email'].errors?.['required']">
+                        Email is required
+                    </span>
+                    <span class="text-danger" *ngIf="reactiveFormControl['email'].errors?.['email']">
+                        Please, enter valid email address
+                    </span>
+                </div>
+            </div>
+            <!-- Phone input -->
+            <div class="form-outline mb-4">
+                <label class="form-label" for="phone">Phone</label>
+                <input type="text" id="phone" class="form-control form-control-lg" formControlName="phone"
+                    placeholder="Enter your phone number" />
+                <div *ngIf="(reactiveFormControl['phone'].touched || reactForm.submitted) && reactiveFormControl['phone'].errors">
+                    <span class="text-danger" *ngIf="reactiveFormControl['phone'].errors?.['required']">
+                        Phone number is required
+                    </span>
+                    <span class="text-danger" *ngIf="reactiveFormControl['phone'].errors?.['pattern']">
+                        Phone number should be only 10 digits
+                    </span>
+                </div>
+            </div>
+            <!-- Password input -->
+            <div class="form-outline mb-4">
+                <label class="form-label" for="password">Password</label>
+                <input type="password" id="password" class="form-control form-control-lg" formControlName="password"
+                    placeholder="Enter password" />
+                <div *ngIf="(reactiveFormControl['password'].touched || reactForm.submitted) && reactiveFormControl['password'].errors">
+                    <span class="text-danger" *ngIf="reactiveFormControl['password'].errors['required']">
+                        Password is required
+                    </span>
+                    <span class="text-danger" *ngIf="reactiveFormControl['password'].errors['minlength']">
+                        Password must be at least 8 characters
+                    </span>
+                    <span class="text-danger" *ngIf="reactiveFormControl['password'].errors['maxlength']">
+                        Password must not exceed 20 characters
+                    </span>
+                </div>
+            </div>
+            <!-- Confirm Password input -->
+            <div class="form-outline mb-4">
+                <label class="form-label" for="confirm_password">Confirm Password</label>
+                <input type="password" id="confirm_password" class="form-control form-control-lg"
+                    formControlName="confirm_password" placeholder="Confirm Password" />
+                <div *ngIf="(reactiveFormControl['confirm_password'].touched || reactForm.submitted)">
+                    <span class="text-danger" *ngIf="reactiveFormControl['confirm_password'].invalid">
+                        Confirm password is required
+                    </span>
+                    <span class="text-danger"
+                        *ngIf="reactiveFormControl['confirm_password'].valid && (reactiveFormControl['password'].value != reactiveFormControl['confirm_password'].value)">Confirm password does not match with password</span>
+                </div>
+            </div>
+            <div class="form-outline mb-4">
+                <button type="submit" class="btn btn-success">Submit</button>
+            </div>
+        </form>
+    </div>
