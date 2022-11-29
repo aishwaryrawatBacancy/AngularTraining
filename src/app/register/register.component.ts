@@ -14,11 +14,11 @@ export class RegisterComponent implements OnInit {
   }
 
   onTemplateDriven() {
-    this.router.navigate(['template-driven']);
+    this.router.navigateByUrl('template-driven');
   }
 
   onReactive() {
-    this.router.navigate(['reactive']);
+    this.router.navigateByUrl('reactive');
   }
 
 }
