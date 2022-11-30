@@ -8,6 +8,12 @@
             </div>
           </div>
 
+          <div>
+            <p>Today is {{today | date}}</p>
+            <p>Or if you prefer, {{today | date:'fullDate'}}</p>
+            <p>The time is {{today | date:'h:mm a z'}}</p>
+          </div>
+
           <div class="dropdown-collection">
             <button class="dropdown-button" (click)="toggleDropdown()" (clickOutside)="dropdownOpen = false" >
                 <span id="dropdown-label">{{title}}: </span><span class="dropdown-value">{{currentValue.name}}</span>
@@ -18,5 +24,26 @@
             </ul>
         </div>
         
+        <div>
+          <section class="sample-app-content">
+            <h1>Template-driven Form Example:</h1>
+            <form #myForm="ngForm" (ngSubmit)="onSubmitTemplateBased()">
+                <p>
+                    <label>First Name:</label>
+                    <input type="text"  
+                        required>
+                </p>
+                <p>
+                    <label>Password:</label>
+                    <input type="password"  
+                         required>
+                </p>
+                <p>
+                    <button type="submit" [disabled]="!myForm.valid">Submit</button>
+                </p>
+            </form>
+        </section>
+        </div>
+
     </div>
 </div>
