@@ -3,22 +3,22 @@
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-  
+
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
-          <a class="nav-link" href="#" (click)="menuChange('home')">Home</a>
+          <a class="nav-link" [routerLink]="'/home'" *ngIf="showHeader">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#" (click)="menuChange('explore')">Explore</a>
+          <a class="nav-link" [routerLink]="'/explore'">Explore</a>
         </li>
         <li class="nav-item dropdown" appDropdown>
-          <a class="nav-link dropdown-toggle"  href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             My Profile
           </a>
           <div class="dropdown-menu" appDropdown aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="#">Action</a>
-            <a class="dropdown-item" href="#">Another action</a>
+            <a class="dropdown-item" routerLink="sign-up">Sign Up</a>
+            <a class="dropdown-item" routerLink="sign-in">Sign In</a>
             <div class="dropdown-divider"></div>
             <a class="dropdown-item" href="#">Something else here</a>
           </div>

@@ -1,0 +1,24 @@
+1. Interceptors
+2. HTTP Requests
+3. Firebase setup done?
+
+
+1. SignIn - Token
+interceptor deals with all API calls- request and response.
+- add request headers
+- add auth token
+
+2. where to check if the user is authenticated or not.
+
+3. we need to add our token with all the api calls that goes from the application.
+
+
+Interceptors - which deals with API calls - protects apis.
+
+Guards - The guards deal with angular routes, and depending on the type of guard, the user can either navigate
+to or navigate out of a guard.
+
+1. canActivate - restrict the user to navigate to certain routes on which this guard is placed.
+2. canDeactivate -  restrict the user to navigate out of certain routes.
+3. canLoad -
+4. resolver -

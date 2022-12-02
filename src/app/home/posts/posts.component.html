@@ -1,17 +1,26 @@
 <div class="flex">
-    <div class="card" appHighlightCard [defaultColor]="'grey'" [highlightColor]="'yellow'">
+    <div class="mb-5">
+      <div class="d-flex flex-column" [formGroup]="postForm">
+        <input type="text" class="form-control" formControlName="title" placeholder="Title of your Post">
+        <textarea class="form-control mt-1" formControlName="content" placeholder="Whats on your mind?"></textarea>
+        <button class="btn btn-primary mt-2 btn-sm" (click)="addPosts()">Post</button>
+      </div>
+    </div>
+    <ng-container *ngFor="let post of posts">
+      <div class="card mt-2" appHighlightCard [defaultColor]="'white'" [highlightColor]="'whitesmoke'">
         <div class="card-body">
-          <h5 class="card-title">Card First</h5>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          <h5 class="card-title">{{post.title}}</h5>
+          <p class="card-text">{{post.content}}</p>
           <a href="#" class="btn btn-primary" (click)="updateCount()">Like</a>
         </div>
     </div>
+    </ng-container>
 
-    <div class="card" appHighlightCard [defaultColor]="'blue'" [highlightColor]="'green'">
+    <!-- <div class="card" appHighlightCard [defaultColor]="'white'" [highlightColor]="'whitesmoke'">
       <div class="card-body">
         <h5 class="card-title">Card Second</h5>
         <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
         <a href="#" class="btn btn-primary" (click)="postLiked()">Like</a>
       </div>
-  </div>
+  </div> -->
 </div>

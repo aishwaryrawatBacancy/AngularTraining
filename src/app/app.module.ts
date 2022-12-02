@@ -8,9 +8,16 @@ import { HighlightCardDirective } from './shared/directives/highlight-card.direc
 import { UnlessDirective } from './shared/directives/structural-directive/unless.directive';
 import { DropdownDirective } from './shared/directives/dropdown-directive/dropdown.directive';
 
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ExploreComponent } from './explore/explore.component';
 import { PostsComponent } from './home/posts/posts.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { AppRouting } from './app.routing';
+import { SignUpComponent } from './users/sign-up/sign-up.component';
+import { SignInComponent } from './users/sign-in/sign-in.component';
+import { AuthInterceptor } from './shared/services/auth.interceptor.service';
+import { AuthGuard } from './shared/guards/auth-guard';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,13 +27,17 @@ import { PostsComponent } from './home/posts/posts.component';
     UnlessDirective,
     DropdownDirective,
     ExploreComponent,
-    PostsComponent
+    PostsComponent,
+    SignUpComponent,
+    SignInComponent
   ],
   imports: [
     BrowserModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule,
+    AppRouting
   ],
-  providers: [],
+  providers: [{provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,0 +1,10 @@
+<div class="container">
+  <form [formGroup]="signUpForm">
+    <div class="form-group">
+      <input type="text" class="form-control" formControlName="email" placeholder="Email" />
+      <input type="password" class="form-control" formControlName="password" placeholder="Password" />
+      <button class="btn btn-primary" (click)="signUp()">Sign Up</button>
+    </div>
+  </form>
+</div>
+

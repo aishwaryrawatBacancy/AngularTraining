@@ -8,7 +8,7 @@
 7. Subjects.
 ******************************************
 
-// like promises - asynchronous - resolve and reject - resolved 
+// like promises - asynchronous - resolve and reject - resolved
 // Handle some event, http request
 // Callback function - resolved - finished.
 
@@ -23,7 +23,7 @@ Observable ---->--------->----------------->--------------->Operators (manipulat
 1. button -> emitting data. - component A
     Observer -> component B
 2. Emit the data in a controlled manner.
-3. HTTP scenario -> emits as soon as the response comes -> 
+3. HTTP scenario -> emits as soon as the response comes ->
 
 RxJS - Angular works really  well with RxJS.
 
@@ -33,12 +33,12 @@ Observables are going to be active unless we manually unsubscribe.
 Observer has 3 parts.
 1. Data - callback functions
 2. errors -
-3. Complete - 
+3. Complete -
 observable.subscribe(data, errors, complete)
 
 2. Custom Observable.
 
-3. How to finish an observable 
+3. How to finish an observable
     1. unsubscribe
     2. Complete
     3. error - observable is cancelled.
@@ -54,6 +54,72 @@ observable.subscribe(data, errors, complete)
     they are a type of observable which works efficiently with Angular.
 
     Active and Passive observables.
-    Acive - we have the control to emit the values. 
+    Acive - we have the control to emit the values.
     the values are emitted from outside.
     Passive -  we dont have control over the emittion of values. And the values are emitted from Inside the observable.
+
+
+
+1. EventEmitter - Output - send values from the Child to the Parent. ONLY
+2. Emit the Data from the method and capture it from the method Parameters.
+
+Child will Emit the value
+Parent will have a method to Capture that Emitted Value.
+
+Child - header - menuChangeEmitter ('Explorr')
+|
+|
+|
+Parent - menuChange(Parameters) - $event - menuChange($event) - HTML
+Parent - Component - menuChange(param: any){ access the emitted value here.}
+
+Observable - we get the stream of values
+2. we get notified when the new value comes.
+
+1. HTTP Request - Observable.subscribe(data => console.log(data))
+of([....100....]).subscribe(....)
+
+
+******************************
+RXJS Operators
+1. Requirement
+  - To load multiple apis at the same time - call parallel apis.
+   5 apis call all at the same time
+  - forkJoin - mergeMap
+
+  - switchMap(on some condition it executes a case){5 cases -> 1 case.}
+  - search filter
+  - swithMap(
+    apiCall(1),
+    apiCall(2)
+  )
+
+  -concatMap
+   - one api response dependant on the next api.
+   loging() -> user -> getData(myUser)
+
+   concatMap(
+    logging(),
+    getData(user => this.service.getMydata(user))
+   )
+2.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,9 @@
+<div class="container">
+  <form [formGroup]="signInForm">
+    <div class="form-group">
+      <input type="text" class="form-control" formControlName="email" placeholder="Email" />
+      <input type="password" class="form-control" formControlName="password" placeholder="Password" />
+      <button class="btn btn-primary" (click)="signIn()">Sign In</button>
+    </div>
+  </form>
+</div>
